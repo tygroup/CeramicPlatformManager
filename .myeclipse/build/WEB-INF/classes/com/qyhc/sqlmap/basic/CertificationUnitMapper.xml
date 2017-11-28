@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="CertificationUnit">
+	
+ <insert id="save" parameterType="CertificationUnit" >
+	    <selectKey resultType="java.lang.String"  order="BEFORE" keyProperty="unitid">  
+	 	 	SELECT f_getkey('')  FROM DUAL   
+	    </selectKey> 
+		insert into CertificationUnit 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			unitid,
+			<if test="unitname != null">
+				unitname,
+			</if>
+			<if test="areaid != null">
+				areaid,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="introduction != null">
+				introduction,
+			</if>
+			 <if test="mainproduce != null">
+				mainproduce,
+			</if>
+				createtime,
+			<if test="logo != null ">
+				logo,
+			</if>
+			<if test="code != null and code != ''">
+				code,
+			</if>
+			<if test="issuedate != null and issuedate != ''">
+				issuedate,
+			</if>
+			<if test="validdate != null and validdate != '' ">
+				validdate,
+			</if>
+			<if test="productname != null and productname != ''">
+				productname,
+			</if>
+			<if test="models != null and models != ''">
+				models,
+			</if>
+			<if test="picture != null and picture != ''">
+				picture,
+			</if>
+			STATE,
+			READINGQUANTITY,
+			<if test="files != null and files != ''">
+				files,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			 #{unitid,jdbcType=VARCHAR},
+			<if test="unitname != null">
+				 #{unitname,jdbcType=VARCHAR},
+			</if>
+			<if test="areaid != null">
+				#{areaid,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			 <if test="introduction != null">
+				#{introduction,jdbcType=VARCHAR},
+			</if>
+			 <if test="mainproduce != null">
+				#{mainproduce,jdbcType=VARCHAR},
+			</if>
+				sysdate,
+			<if test="logo != null">
+				#{logo,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != '' ">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="issuedate != null and issuedate != '' ">
+				#{issuedate,jdbcType=DATE},
+			</if>
+			<if test="validdate != null and validdate != '' ">
+				#{validdate,jdbcType=DATE},
+			</if>
+			<if test="productname != null and productname != '' ">
+				#{productname,jdbcType=VARCHAR},
+			</if>
+			<if test="models != null and models != '' ">
+				#{models,jdbcType=VARCHAR},
+			</if>
+			<if test="picture != null  and picture != '' ">
+				#{picture,jdbcType=VARCHAR},
+			</if>
+			0,
+			0,
+			<if test="files != null and files != ''">
+				#{files,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="update" parameterType="CertificationUnit">
+		update CertificationUnit
+		<set>
+			<if test="unitname != null">
+				unitname =  #{unitname,jdbcType=VARCHAR},
+			</if>
+			<if test="areaid != null">
+				areaid = #{areaid,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			 <if test="introduction != null">
+				introduction = #{introduction,jdbcType=VARCHAR},
+			</if>
+			 <if test="mainproduce != null">
+				mainproduce = #{mainproduce,jdbcType=VARCHAR},
+			</if>
+			<if test="logo != null">
+				logo=#{logo,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != '' ">
+				code=#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="issuedate != null and issuedate != '' ">
+				issuedate=#{issuedate,jdbcType=DATE},
+			</if>
+			<if test="validdate != null and validdate != '' ">
+				validdate=#{validdate,jdbcType=DATE},
+			</if>
+			<if test="productname != null and productname != '' ">
+				productname=#{productname,jdbcType=VARCHAR},
+			</if>
+			<if test="models != null and models != '' ">
+				models=#{models,jdbcType=VARCHAR},
+			</if>
+			<if test="picture != null and picture != '' ">
+				picture=#{picture,jdbcType=VARCHAR},
+			</if>
+			<if test="files != null and files != ''">
+				files=#{files,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where unitid = #{unitid,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="findById"  parameterType="java.lang.String" resultType="CertificationUnit">
+		 <![CDATA[select t.*,c.*
+  from CERTIFICATIONUNIT t
+  left join (select a.areaid,a.parentid as cityid ,b.parentid as provid 
+   from area a left join area b on a.parentid=b.areaid) c
+    on t.areaid = c.areaid
+   where  t.unitid=#{unitid,jdbcType=VARCHAR}]]>
+	</select>
+	<update id="deleteByIds">
+		update  CertificationUnit
+		<set>	state = 1,
+		</set>
+		<where>
+			<foreach close=")" collection="array" index="index" item="item" open="(" separator="or">
+				unitid=#{item,jdbcType=VARCHAR}
+			</foreach>
+		</where>
+	</update>
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[ select count(getcity(t.areaid))  from CertificationUnit t	 where t.state=0  ]]>
+		 
+		<if test="title != null and  title !='' ">
+			and t.unitname like concat(CONCAT('%',#{title}),'%')
+		</if>
+		<if test="area != null and  area !='' ">
+			and (getcity(t.areaid)  like concat(CONCAT('%',#{area}),'%') or t.address like concat(CONCAT('%',#{area}),'%'))
+		</if>
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="CertificationUnit">
+		<![CDATA[select * from (select aa.*,rownum rn from 
+				(select t.* ,getcity(t.areaid) as areaname  from CertificationUnit t where t.state=0 ]]>
+	 
+		<if test="title != null and  title !='' ">
+			and t.unitname like concat(CONCAT('%',#{title}),'%')
+		</if>
+		 <if test="area != null and  area !='' ">
+			and (getcity(t.areaid)  like concat(CONCAT('%',#{area}),'%') or t.address like concat(CONCAT('%',#{area}),'%'))
+		</if>
+		 <![CDATA[ ) aa where
+			rownum<=#{endNum,jdbcType=VARCHAR} order by createtime desc )where rn>#{startNum,jdbcType=VARCHAR}  ]]> 
+	</select>
+	<select id="findAll" parameterType="map" resultType="CertificationUnit">
+		<![CDATA[ select t.*  from CERTIFICATIONUNIT t where t.state='0'  ]]>
+	 
+	</select>
+</mapper>

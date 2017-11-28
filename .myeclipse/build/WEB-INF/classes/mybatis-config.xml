@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias alias="AboutMe" type="com.qyhc.bean.basic.AboutMe" />
+  	  	<typeAlias alias="Carousel" type="com.qyhc.bean.basic.Carousel" />
+  	  	<typeAlias alias="CertificationUnit" type="com.qyhc.bean.basic.CertificationUnit" />
+  	  	<typeAlias alias="DataDetails" type="com.qyhc.bean.basic.DataDetails" />
+  	  	<typeAlias alias="DateTypes" type="com.qyhc.bean.basic.DateTypes" />
+  	  	<typeAlias alias="ModelLikes" type="com.qyhc.bean.basic.ModelLikes" />
+  	    <typeAlias alias="AdShow" type="com.qyhc.bean.basic.AdShow" />
+  	    <typeAlias alias="Nurse" type="com.qyhc.bean.basic.Nurse" />
+		
+  	    <typeAlias alias="MallDataCash" type="com.qyhc.bean.mall.MallDataCash" />
+		<typeAlias alias="MallGoods" type="com.qyhc.bean.mall.MallGoods" />
+        <typeAlias alias="MallGoodsType" type="com.qyhc.bean.mall.MallGoodsType" />
+		<typeAlias alias="MallOrder" type="com.qyhc.bean.mall.MallOrder" />
+		<typeAlias alias="MallOrderDetail" type="com.qyhc.bean.mall.MallOrderDetail" />
+		<typeAlias alias="MallReveivingAddress" type="com.qyhc.bean.mall.MallReveivingAddress" />
+		
+		<typeAlias alias="AppVersion" type="com.qyhc.bean.sys.AppVersion" />
+		<typeAlias alias="Area" type="com.qyhc.bean.sys.Area" />
+		<typeAlias alias="SysMemberRole" type="com.qyhc.bean.sys.SysMemberRole" />
+		<typeAlias alias="SysModule" type="com.qyhc.bean.sys.SysModule" />
+		<typeAlias alias="SysRights" type="com.qyhc.bean.sys.SysRights" />
+		<typeAlias alias="SysRole" type="com.qyhc.bean.sys.SysRole" />
+  	  	<typeAlias alias="Users" type="com.qyhc.bean.sys.Users" />
+  	  	<typeAlias alias="Nurse" type="com.qyhc.bean.basic.Nurse" />
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="com/qyhc/sqlmap/sys/UserMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/sys/SysRoleMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/sys/SysRightsMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/sys/SysMemberRoleMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/sys/AreaMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/sys/AppVersionMapper.xml" />
+		
+		<mapper resource="com/qyhc/sqlmap/sys/SysModuleMapper.xml" />
+		 
+		<mapper resource="com/qyhc/sqlmap/mall/MallGoodsMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/mall/MallGoodsTypeMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/mall/MallOrderMapper.xml" />
+		<mapper resource="com/qyhc/sqlmap/mall/MallDataCashMapper.xml" />
+		
+		 
+		 <mapper resource="com/qyhc/sqlmap/basic/DatadetilsMapper.xml" />
+		 <mapper resource="com/qyhc/sqlmap/basic/DateTypesMapper.xml" />
+		 <mapper resource="com/qyhc/sqlmap/basic/CarouselMapper.xml" />
+		 <mapper resource="com/qyhc/sqlmap/basic/AdShowMapper.xml" />
+		 <mapper resource="com/qyhc/sqlmap/basic/CertificationUnitMapper.xml" />
+		 <mapper resource="com/qyhc/sqlmap/basic/AboutMeMapper.xml" />
+		 <mapper resource="com/qyhc/sqlmap/basic/NurseMapper.xml" />
+		 
+	</mappers>
+
+
+</configuration>

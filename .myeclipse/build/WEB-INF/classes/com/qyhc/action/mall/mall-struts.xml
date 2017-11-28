@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mall" extends="qyhc">
+
+	 
+		 
+		<!-- 商品列表jml-->
+		<action name="mallgoods_*" class="mallGoodsAction" method="{1}">
+			<result name="list">/jsp/mall/mallGoods/goods_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">mallgoods_list.action</param>
+				<param name="result">${result}</param>
+				<param name="d-16544-p">${currentPage}</param>
+				
+			</result>
+			<result name="findbyid_ok">/jsp/mall/mallGoods/goods_addEdit.jsp</result>
+			<result name="findbyidsh_ok">/jsp/mall/mallGoods/goods_sh.jsp</result>
+			
+			 
+			
+		</action>
+		<!--   商品分类列表jml -->
+		<action name="mallgoodstypes_*" class="mallGoodsTypeAction" method="{1}">
+			<result name="list">/jsp/mall/mallGoodsTypes/types_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">mallgoodstypes_list.action</param>
+				<param name="result">${result}</param>
+				<param name="d-16544-p">${currentPage}</param>
+				
+			</result>
+			<result name="findbyid_ok">/jsp/mall/mallGoodsTypes/types_addEdit.jsp</result>
+			
+		</action>
+		<!--  订单管理jml 2016-3-17  
+		<action name="mallorders_*" class="mallOrdersAction" method="{1}">
+			<result name="list">/jsp/mall/mallOrders/orders_list.jsp</result>
+			<result name="statistics_list">/jsp/mall/mallOrders/orders_statistics.jsp</result>
+			
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">mallorders_list.action</param>
+				<param name="result">${result}</param>
+				<param name="d-16544-p">${currentPage}</param>
+				
+			</result>
+			<result name="findbyid_ok">/jsp/mall/mallOrders/orders_detail.jsp</result>
+			
+		</action>
+		 账单统计管理jml 2016-3-21  
+		<action name="mallpaybills_*" class="mallPayBillsAction" method="{1}">
+			<result name="list">/jsp/mall/mallpaybills/orders_statistics.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">mallpaybills_list.action</param>
+				<param name="result">${result}</param>
+				<param name="d-16544-p">${currentPage}</param>
+			</result>
+			
+		</action>
+		
+	 -->
+		
+	</package>
+</struts>

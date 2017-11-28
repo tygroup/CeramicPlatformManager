@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SysMemberRole">
+	<select id="selectByRoleIds" resultType="Integer">
+		select count(*) from REL_ROLERIGHT
+		<where>
+			<foreach collection="array" index="index" item="item" open="("
+				separator="or" close=")">
+				ROLEID=#{item}
+			</foreach>
+		</where>
+	</select>
+	<delete id="deleteByUserIds">
+		delete from REL_ROLERIGHT
+		<where>
+			<foreach collection="array" index="index" item="item" open="("
+				separator="or" close=")">
+				USERID=#{item}
+			</foreach>
+		</where>
+	</delete>
+	<insert id="updateBatch" parameterType="map">
+		insert into REL_ROLERIGHT(ID,USERID, ROLEID)
+		<foreach collection="roleIds" index="index" item="item"
+			separator="union all">
+			(select f_getkey(''), #{userId}, #{item} from dual)
+		</foreach>
+	</insert>
+
+	<select id="findAllByProperty" parameterType="SysMemberRole"
+		resultType="SysMemberRole">
+		select *
+		from REL_ROLERIGHT where 1=1
+
+		<if test="id!=null">
+			and ID = #{id}
+		</if>
+		<if test="userid!= null">
+			AND USERID = #{userid}
+		</if>
+
+		<if test="roleid!= null ">
+			AND roleid = #{roleid}
+		</if>
+		order by ID
+	</select>
+</mapper>

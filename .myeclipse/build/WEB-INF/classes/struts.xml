@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="qyhc" extends="struts-default">
+		<!-- 配置自定义拦截器LoginedCheckInterceptor -->
+		<interceptors>
+			<interceptor name="loginedCheck"
+				class="com.qyhc.interceptor.LoginedCheckInterceptor" />
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="loginedCheck" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="mystack"></default-interceptor-ref>
+		<!-- 定义全局result -->
+		<global-results>
+			<!-- 定义名为exception的全局result -->
+			<result name="exception">jsp/sys/exception.jsp</result>
+			<result name="tologin">login.jsp</result>
+			<result name="closePopup">js/box_close.jsp</result>
+		</global-results>
+		<!-- 定义全局异常映射 -->
+		<global-exception-mappings>
+			<!-- 捕捉到Exception异常(所有异常)时跳转到exception所命名的视图上 -->
+			<exception-mapping exception="java.lang.Exception"
+				result="exception" />
+		</global-exception-mappings>
+	</package>
+	<include file="com/qyhc/action/sys/sys-struts.xml" />
+	<include file="com/qyhc/action/basic/basic-struts.xml" />
+	<include file="com/qyhc/action/mall/mall-struts.xml" />
+</struts>

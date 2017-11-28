@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SysRole">
+
+
+	<insert id="save" parameterType="SysRole">
+		insert into SYS_ROLE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+
+			ROLEID,
+
+			<if test="rolename != null">
+				ROLENAME,
+			</if>
+				<if test="picurl != null">
+				picurl,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			f_getkey(''),
+			<if test="rolename != null">
+				#{rolename,jdbcType=VARCHAR},
+			</if>
+			<if test="picurl != null">
+				#{picurl,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="update" parameterType="SysRole">
+		update SYS_ROLE
+		<set>
+			<if test="rolename != null">
+				ROLENAME = #{rolename,jdbcType=VARCHAR},
+			</if>
+				<if test="picurl != null">
+				picurl = #{picurl,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ROLEID = #{roleid,jdbcType=VARCHAR}
+	</update>
+
+	<delete id="delete" parameterType="SysRole">
+		delete from SYS_ROLE where
+		ROLEID=#{roleid}
+	</delete>
+	<delete id="deleteById" parameterType="java.lang.String">
+		delete from SYS_ROLE
+		where
+		ROLEID=#{roleid}
+	</delete>
+	<select id="findById" parameterType="java.lang.String"
+		resultType="SysRole">
+		select * from SYS_ROLE
+		where
+		ROLEID=#{roleid}
+	</select>
+		<select id="findRoleByUserid" parameterType="java.lang.String"
+		resultType="SysRole">
+		select distinct sr.* from SYS_ROLE sr, REL_ROLERIGHT t where sr.roleid=t.roleid and t.userid=#{userid}
+	</select>
+	<delete id="deleteByIds">
+		delete from SYS_ROLE
+		<where>
+			<foreach collection="array" index="index" item="item" open="("
+				separator="or" close=")">
+				ROLEID=#{item}
+			</foreach>
+		</where>
+	</delete>
+	<select id="findAll" parameterType="map" resultType="SysRole">
+		select *
+		from SYS_ROLE order by ROLEID
+	</select>
+	<select id="findAllByProperty" parameterType="SysRole"
+		resultType="SysRole">
+		select *
+		from SYS_ROLE where 1=1
+
+		<if test="roleid!=null">
+			and ROLEID = #{roleid}
+		</if>
+		<if test="rolename!= null">
+			AND ROLENAME = #{rolename}
+		</if>
+		order by ROLEID
+	</select>
+	
+	<select id="selectRoleByRoleIds" resultType="SysRole">
+		select * from SYS_ROLE
+		<where>
+			<foreach collection="array" index="index" item="item" open="("
+				separator="or" close=")">
+				ROLEID=#{item}
+			</foreach>
+		</where>
+	</select>
+	<select id="selectRoleNotInRoleIds" resultType="SysRole">
+		select * from SYS_ROLE where ROLEID not in
+		
+			<foreach collection="array" index="index" item="item" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		order by ROLEID
+	</select>
+</mapper>

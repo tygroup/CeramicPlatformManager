@@ -1,0 +1,481 @@
+A:link {
+	FONT-SIZE: 9pt; COLOR: blue; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 9pt; COLOR: #840084; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 9pt; COLOR: #ff9966; TEXT-DECORATION: underline
+}
+A:active {
+	FONT-SIZE: 9pt; COLOR: #ff9966; TEXT-DECORATION: underline
+}
+.portalTableCss TD {
+	FONT-SIZE: 9pt
+}
+.portalTableCss {
+	TABLE-LAYOUT: fixed; BORDER-COLLAPSE: collapse
+}
+.portalTableCss SPAN {
+	OVERFLOW: hidden; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis
+}
+.portalTdCss {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; OVERFLOW: hidden; PADDING-TOP: 3px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis; BACKGROUND-COLOR: #eaf4fd
+}
+.portalTdCss1 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; OVERFLOW: hidden; PADDING-TOP: 3px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis
+}
+.portal_title_tab {
+	BORDER-RIGHT: #6699ff 1px solid; BORDER-TOP: #6699ff 1px solid; BORDER-LEFT: #6699ff 1px solid; BORDER-BOTTOM: #6699ff 1px solid
+}
+.portal_title_td {
+	BORDER-BOTTOM: #6699ff 1px solid
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; SCROLLBAR-FACE-COLOR: #cee0ee; PADDING-BOTTOM: 0px; MARGIN: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #cfe0f0; SCROLLBAR-3DLIGHT-COLOR: #8db1d3; SCROLLBAR-ARROW-COLOR: #006699; PADDING-TOP: 0px; SCROLLBAR-TRACK-COLOR: #aec4dc; SCROLLBAR-DARKSHADOW-COLOR: #8db1d3; BACKGROUND-COLOR: #eaf4fd
+}
+.TabTitleCss TD {
+	BORDER-RIGHT: #e6e6e6 0px solid; BORDER-TOP: #e6e6e6 1px solid; PADDING-LEFT: 10px; FONT-SIZE: 10pt; BACKGROUND-IMAGE: url(../skins/default/images/portal/headbg.gif); BORDER-LEFT: #e6e6e6 1px solid; WIDTH: 100%; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #e6e6e6 0px solid; WHITE-SPACE: nowrap; HEIGHT: 20px
+}
+.tdTitle {
+	PADDING-LEFT: 10px; WIDTH: 20%; BORDER-BOTTOM: #8db1d1 1px solid; WHITE-SPACE: nowrap; HEIGHT: 22px; BACKGROUND-COLOR: #cddeee; TEXT-ALIGN: left
+}
+.errorxxnr A:link {
+	COLOR: #e37804; TEXT-DECORATION: none
+}
+.errorxxnr A:visited {
+	COLOR: #e37804; TEXT-DECORATION: none
+}
+.errorxxnr A:hover {
+	COLOR: #204d77; TEXT-DECORATION: none
+}
+TR{
+TABLE-LAYOUT: fixed; 
+WORD-BREAK: break-all;
+}
+TD {
+	FONT-SIZE: 9pt
+}
+.searchText {
+	BORDER-RIGHT: #9a9a9a 1px solid; BORDER-TOP: #9a9a9a 1px solid; BORDER-LEFT: #9a9a9a 1px solid; BORDER-BOTTOM: #9a9a9a 1px solid
+}
+.fieldsetCss {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 2px; MARGIN: 10px 12px 4px; WIDTH: 100%; COLOR: #214e78; PADDING-TOP: 10px
+}
+.tblContent {
+	BORDER-RIGHT: #8db1d1 1px solid; BORDER-TOP: #8db1d1 1px solid; BORDER-LEFT: #8db1d1 1px solid; BORDER-BOTTOM: #8db1d1 0px solid
+}
+.tblContent TR {
+	BORDER-BOTTOM: #8db1d1 1px solid
+}
+.TdLeft {
+	PADDING-LEFT: 10px; WIDTH: 20%; BORDER-BOTTOM: #8db1d1 1px solid; WHITE-SPACE: nowrap; HEIGHT: 22px; BACKGROUND-COLOR: #cddeee; TEXT-ALIGN: left
+}
+.TdRight {
+	BORDER-BOTTOM: #8db1d1 1px solid; TEXT-ALIGN: left;WORD-BREAK: break-all; WORD-WRAP: break-word;width:30%;
+}
+.TdRight TEXTAREA {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; BORDER-LEFT: #8db1d3 1px solid; BORDER-BOTTOM: #8db1d3 1px solid
+}
+.TdRight INPUT {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; BORDER-LEFT: #8db1d3 1px solid; BORDER-BOTTOM: #8db1d3 1px solid; HEIGHT: 18px
+}
+.TdRight SPAN {
+	FONT-SIZE: 9pt
+}
+.hiddenInput {
+	WIDTH: 0%; HEIGHT: 18px
+}
+.TblAdd {
+	BORDER-RIGHT: #333333 0px solid; BORDER-TOP: #333333 0px solid; BORDER-LEFT: #333333 0px solid; BORDER-BOTTOM: #333333 0px solid; BORDER-COLLAPSE: collapse
+}
+.FieldsetCss LEGEND {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 9pt; PADDING-BOTTOM: 5px; COLOR: #333333; PADDING-TOP: 5px
+}
+.BtnDivCss {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+FORM {
+	MARGIN-TOP: 0px; VERTICAL-ALIGN: top
+}
+.advlabel {
+	VERTICAL-ALIGN: middle; OVERFLOW: hidden; TEXT-OVERFLOW: ellipsis; TEXT-ALIGN: center
+}
+.advcheckbox {
+	VERTICAL-ALIGN: middle; WIDTH: 13px; HEIGHT: 13px
+}
+.advradio {
+	VERTICAL-ALIGN: middle; WIDTH: 13px; MARGIN-RIGHT: 4px; HEIGHT: 13px
+}
+.advbutton {
+	BORDER-RIGHT: #487094 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #487094 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 9pt; BACKGROUND-IMAGE: url(../skins/default/images/portal/button.gif); VERTICAL-ALIGN: middle; OVERFLOW: hidden; BORDER-LEFT: #487094 1px solid; CURSOR: hand; COLOR: #1f4f77; BORDER-BOTTOM: #487094 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.advbutton-over {
+	BORDER-RIGHT: #467194 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #467194 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 9pt; VERTICAL-ALIGN: middle; OVERFLOW: hidden; BORDER-LEFT: #467194 1px solid; CURSOR: hand; COLOR: #427dad; BORDER-BOTTOM: #467194 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.advbutton IMG {
+	VERTICAL-ALIGN: middle; MARGIN-RIGHT: 2px
+}
+.data_ctrl BUTTON {
+	WIDTH: 25px; HEIGHT: 20px
+}
+U {
+	TEXT-TRANSFORM: uppercase
+}
+.guage {
+	BORDER-RIGHT: background 1px solid; BORDER-TOP: background 1px solid; BACKGROUND: white; OVERFLOW: hidden; BORDER-LEFT: background 1px solid; WIDTH: 190px; BORDER-BOTTOM: background 1px solid; HEIGHT: 12px
+}
+.guagesub {
+	BACKGROUND: lime; FILTER: Alpha(Opacity=0,FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=100, FinishY=0); HEIGHT: 4px
+}
+.adjust {
+	DISPLAY: inline
+}
+.adjust INPUT {
+	PADDING-RIGHT: 17px; WIDTH: 100%; HEIGHT: 22px; TEXT-ALIGN: right
+}
+.adjust BUTTON {
+	BORDER-RIGHT: silver 1px solid; BORDER-TOP: silver 1px solid; FONT-SIZE: 7px; BORDER-LEFT: silver 1px solid; WIDTH: 16px; BORDER-BOTTOM: silver 1px solid; FONT-FAMILY: webdings; POSITION: absolute; HEIGHT: 9px; BACKGROUND-COLOR: white
+}
+.combobox INPUT {
+	PADDING-RIGHT: 17px; WIDTH: 86%; HEIGHT: 16px
+}
+.combobox BUTTON {
+	FONT-SIZE: 9px; WIDTH: 17px; LINE-HEIGHT: 1px; FONT-FAMILY: webdings; POSITION: absolute; HEIGHT: 17px
+}
+.combobox LABEL {
+	WIDTH: 100%; PADDING-TOP: 4px; HEIGHT: 20px
+}
+.selected {
+	BACKGROUND: highlight; WIDTH: 100%; COLOR: white; HEIGHT: 20px
+}
+.combo_body {
+	BORDER-RIGHT: dimgray 1px solid; BORDER-TOP: dimgray 1px solid; BACKGROUND: white; FILTER: progid:DXImageTransform.Microsoft.Shadow(color='#333333', Direction=135, Strength=3); BORDER-LEFT: dimgray 1px solid; BORDER-BOTTOM: dimgray 1px solid
+}
+.radiogroup {
+	BORDER-RIGHT: royalblue 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: royalblue 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 6px; BORDER-LEFT: royalblue 1px solid; WIDTH: 12px; PADDING-TOP: 6px; BORDER-BOTTOM: royalblue 1px solid; WHITE-SPACE: nowrap
+}
+.tab_title TD {
+	FONT-SIZE: 9pt
+}
+.tab_view SPAN {
+	BORDER-RIGHT: background 1px solid; PADDING-RIGHT: 12px; BORDER-TOP: white 1px solid; PADDING-LEFT: 12px; BACKGROUND: lightskyblue; BORDER-LEFT: white 1px solid; WIDTH: 100%; PADDING-TOP: 2px; HEIGHT: 18px
+}
+.tab_select {
+	BORDER-RIGHT: background 1px solid; BORDER-TOP: orange 2px solid; BACKGROUND: lavender; BORDER-LEFT: background 1px solid
+}
+.tab_view {
+	PADDING-TOP: 2px; BORDER-BOTTOM: white 1px solid
+}
+.tab_select SPAN {
+	BORDER-RIGHT: lightsteelblue 1px solid; PADDING-RIGHT: 12px; BORDER-TOP: white 1px solid; PADDING-LEFT: 12px; BORDER-LEFT: white 1px solid; WIDTH: 100%; HEIGHT: 18px
+}
+.tab_blank {
+	WIDTH: 80%; BORDER-BOTTOM: white 1px solid
+}
+.tab_body {
+	BORDER-RIGHT: background 1px solid; BACKGROUND: lavender; BORDER-LEFT: background 1px solid; BORDER-BOTTOM: background 1px solid
+}
+.tab_td {
+	BORDER-RIGHT: lightsteelblue 1px solid; BORDER-LEFT: white 1px solid; BORDER-BOTTOM: lightsteelblue 1px solid
+}
+.buttonskin {
+	BORDER-RIGHT: background 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; MARGIN-RIGHT: 1px; BORDER-BOTTOM: background 1px solid
+}
+.divdate INPUT {
+	BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid
+}
+.date {
+	BACKGROUND: #e4e4e4; FILTER: progid:DXImageTransform.Microsoft.Shadow(color='#333333', Direction=135, Strength=3); WIDTH: 160px
+}
+.datebackground {
+	BACKGROUND: #e4e4e4
+}
+.date_table {
+	BORDER-RIGHT: #4a7095 0px solid; PADDING-RIGHT: 2px; BORDER-TOP: #4a7095 0px solid; PADDING-LEFT: 2px; BACKGROUND: #e3edf7; PADDING-BOTTOM: 2px; BORDER-LEFT: #4a7095 0px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #4a7095 0px solid
+}
+.date_time TD {
+	FONT-SIZE: 9pt
+}
+.date_time {
+	WIDTH: 100%
+}
+.date_body TD {
+	FONT-SIZE: 9pt; WIDTH: 22px; TEXT-ALIGN: center
+}
+.date_body {
+	BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid
+}
+.date_title TD {
+	BACKGROUND: #e4e4e4; COLOR: black
+}
+.date_select {
+	BACKGROUND: darkblue; COLOR: white
+}
+.date_mouseover {
+	BACKGROUND: gray
+}
+.date_today {
+	BACKGROUND: #8989bc; COLOR: black
+}
+.date_td {
+	BACKGROUND: #ffffcc
+}
+.date_blank_td {
+	BACKGROUND: white
+}
+.date_button {
+	BORDER-RIGHT: darkgray 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: darkgray 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: darkgray 1px solid; WIDTH: 20px; PADDING-TOP: 1px; BORDER-BOTTOM: darkgray 1px solid; HEIGHT: 20px
+}
+DIV {
+	scrollbar-face-color:#fafafa;
+	scrollbar-highlight-color:#fafafa;
+	scrollbar-3dlight-color:#78CDB1;
+	scrollbar-darkshadow-color:#78CDB1;
+	scrollbar-shadow-color:#fafafa;
+	scrollbar-arrow-color:#78CDB1;
+	scrollbar-track-color:#B7E6D7;
+}
+.divTiSkin {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; BORDER-LEFT: #8db1d3 1px solid; BORDER-BOTTOM: #8db1d3 1px solid; BACKGROUND-COLOR: #eff4fa
+}
+.divTiSkin TABLE {
+	TABLE-LAYOUT: fixed; BORDER-BOTTOM: #c8d9e8 1px solid; BORDER-COLLAPSE: collapse
+}
+.divTiSkin TD {
+	BORDER-RIGHT: #c8d9e8 1px solid; BORDER-TOP: #c8d9e8 1px solid; FONT-SIZE: 9pt; BACKGROUND: white; PADDING-BOTTOM: 0px; OVERFLOW: hidden; BORDER-LEFT: #c8d9e8 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #c8d9e8 1px solid; WHITE-SPACE: nowrap; HEIGHT: 20px; TEXT-OVERFLOW: ellipsis; TEXT-ALIGN: center
+}
+.divTiSkin IMG {
+	
+}
+.divTiSkin SPAN {
+	OVERFLOW: hidden; WIDTH: 100%; PADDING-TOP: 3px; WHITE-SPACE: nowrap; HEIGHT: 100%; TEXT-OVERFLOW: ellipsis
+}
+.divTiSkin INPUT {
+	BORDER-RIGHT: white 0px solid; BORDER-TOP: white 0px solid; BORDER-LEFT: white 0px solid; WIDTH: 100%; BORDER-BOTTOM: white 0px solid; HEIGHT: 17px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.focusCss {
+	BORDER-RIGHT: #6699cc 1px solid; BORDER-TOP: #6699cc 1px solid; BORDER-LEFT: #6699cc 1px solid; BORDER-BOTTOM: #6699cc 1px solid
+}
+.lightSkin {
+	FONT-SIZE: 9pt; BACKGROUND: #bfe0fe; TEXT-ALIGN: center
+}
+.lightSkin INPUT {
+	BORDER-RIGHT: #3366cc 0px solid; BORDER-TOP: #3366cc 0px solid; BORDER-LEFT: #3366cc 0px solid; BORDER-BOTTOM: #3366cc 0px solid; BACKGROUND-COLOR: #bfe0fe; TEXT-ALIGN: center
+}
+.lightSkin TD {
+	COLOR: #214f73; BACKGROUND-COLOR: #bfe0fe
+}
+.divToucss TABLE {
+	TABLE-LAYOUT: fixed; BORDER-LEFT: 1px solid; BORDER-COLLAPSE: collapse
+}
+.divToucss TD {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; FONT-SIZE: 9pt; VERTICAL-ALIGN: top; BORDER-LEFT: #8db1d3 1px solid; BORDER-BOTTOM: #8db1d3 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.divToucss SPAN {
+	BORDER-RIGHT: #8eb0d3 0px solid; BORDER-TOP: #8eb0d3 1px solid; FILTER: Alpha(Opacity=40, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=50); BORDER-LEFT: #8eb0d3 1px solid; WIDTH: 100%; COLOR: #000000; PADDING-TOP: 3px; BORDER-BOTTOM: #8eb0d3 0px solid; WHITE-SPACE: nowrap; HEIGHT: 100%; BACKGROUND-COLOR: #c7d9ed
+}
+.divToucss LABEL {
+	FONT-SIZE: 8px; MARGIN-LEFT: 5px; FONT-FAMILY: Marlett
+}
+.divToucss INPUT {
+	BORDER-RIGHT: #ccddff 0px solid; BORDER-TOP: #ccddff 0px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ccddff 0px solid; COLOR: #000000; BORDER-BOTTOM: #ccddff 0px solid; BACKGROUND-COLOR: #ccddff; TEXT-ALIGN: center
+}
+.tableToucss TABLE {
+	TABLE-LAYOUT: fixed; BORDER-LEFT: 1px solid; BORDER-COLLAPSE: collapse
+}
+.tableToucss TD {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #8db1d3 1px solid; BORDER-BOTTOM: #8db1d3 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+.tableToucss SPAN {
+	OVERFLOW: hidden; WIDTH: 100%; PADDING-TOP: 3px; WHITE-SPACE: nowrap; HEIGHT: 100%; TEXT-OVERFLOW: ellipsis
+}
+.tableToucss DIV {
+	BORDER-RIGHT: #e6e6e6 0px solid; BORDER-TOP: #e6e6e6 1px solid; FILTER: Alpha(Opacity=40, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=50); BORDER-LEFT: #e6e6e6 1px solid; WIDTH: 100%; COLOR: #000000; PADDING-TOP: 3px; BORDER-BOTTOM: #e6e6e6 0px solid; WHITE-SPACE: nowrap; HEIGHT: 100%; BACKGROUND-COLOR: #e6e6e6
+}
+.tableToucss LABEL {
+	FONT-SIZE: 8px; MARGIN-LEFT: 5px; FONT-FAMILY: Marlett
+}
+.tableToucss INPUT {
+	BORDER-RIGHT: #ccddff 0px solid; BORDER-TOP: #ccddff 0px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ccddff 0px solid; COLOR: #000000; BORDER-BOTTOM: #ccddff 0px solid; BACKGROUND-COLOR: #e6e6e6; TEXT-ALIGN: center
+}
+.tableToucss DIV {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #e6e6e6; FILTER: Alpha(Opacity=40, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=50); BORDER-BOTTOM-WIDTH: 0px; BORDER-BOTTOM-COLOR: #e6e6e6; COLOR: #000000; BORDER-TOP-COLOR: #e6e6e6; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #e6e6e6; BORDER-RIGHT-WIDTH: 0px; BORDER-RIGHT-COLOR: #e6e6e6
+}
+.divChaos TABLE {
+	TABLE-LAYOUT: fixed; BORDER-LEFT: 1px solid; BORDER-COLLAPSE: collapse
+}
+.divChaos TD {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; FONT-SIZE: 9pt; FILTER: Alpha(Opacity=40, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=50); OVERFLOW: hidden; BORDER-LEFT: #8db1d3 1px solid; WIDTH: 100%; BORDER-BOTTOM: #8db1d3 1px solid; WHITE-SPACE: nowrap; HEIGHT: 100%; TEXT-OVERFLOW: ellipsis; BACKGROUND-COLOR: #e6e6e6
+}
+.divAllcss {
+	BACKGROUND: white; OVERFLOW: hidden
+}
+.divSumcss {
+	PADDING-LEFT: 1px
+}
+.divSumcss TABLE {
+	TABLE-LAYOUT: fixed; BORDER-COLLAPSE: collapse
+}
+.divSumcss TD {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; FONT-SIZE: 9pt; BACKGROUND: #c6d8ec; BORDER-LEFT: #8db1d3 1px solid; COLOR: #000000; BORDER-BOTTOM: #8db1d3 1px solid; HEIGHT: 21px; TEXT-ALIGN: center
+}
+.divSumcss INPUT {
+	BORDER-RIGHT: background 1px solid; BORDER-TOP: background 1px solid; FONT-SIZE: 9pt; BACKGROUND: buttonface; BORDER-LEFT: background 1px solid; COLOR: #000000; BORDER-BOTTOM: background 1px solid; TEXT-ALIGN: center
+}
+.divSumcss SPAN {
+	BORDER-RIGHT: #8db1d3 0px solid; BORDER-TOP: #8db1d3 0px solid; PADDING-LEFT: 2px; BACKGROUND: #cbdcee; OVERFLOW: hidden; BORDER-LEFT: #8db1d3 0px solid; WIDTH: 100%; PADDING-TOP: 3px; BORDER-BOTTOM: #8db1d3 0px solid; WHITE-SPACE: nowrap; HEIGHT: 100%; TEXT-OVERFLOW: ellipsis
+}
+.divLeftCss {
+	PADDING-TOP: 21px
+}
+.divLeftCss TABLE {
+	MARGIN-TOP: 21px; BACKGROUND: #ccdded; BORDER-COLLAPSE: collapse
+}
+.divLeftCss TD {
+	BORDER-RIGHT: #8db1d3 1px solid; BORDER-TOP: #8db1d3 1px solid; FONT-SIZE: 9pt; BACKGROUND: #ccdded; BORDER-LEFT: #8db1d3 1px solid; COLOR: #000000; BORDER-BOTTOM: #8db1d3 1px solid; HEIGHT: 20px; TEXT-ALIGN: right
+}
+.divLeftCss SPAN {
+	BORDER-RIGHT: #8db1d3 0px solid; BORDER-TOP: #8db1d3 1px solid; PADDING-LEFT: 2px; BACKGROUND: #ccdded; OVERFLOW: hidden; BORDER-LEFT: #8db1d3 1px solid; WIDTH: 100%; CURSOR: hand; PADDING-TOP: 3px; BORDER-BOTTOM: #8db1d3 0px solid; WHITE-SPACE: nowrap; HEIGHT: 100%; TEXT-OVERFLOW: ellipsis
+}
+.selectColCss SELECT {
+	BACKGROUND: white; WIDTH: 100%
+}
+.datactrl INPUT {
+	BORDER-RIGHT: steelblue 1px solid; BORDER-TOP: white 1px solid; FONT-SIZE: 9pt; BACKGROUND: url(../skins/default/images/portal/buttonbg.gif) lightskyblue; VERTICAL-ALIGN: middle; OVERFLOW: hidden; BORDER-LEFT: buttonhighlight 1px solid; WIDTH: 25px; BORDER-BOTTOM: steelblue 1px solid; FONT-FAMILY: wingdings; HEIGHT: 20px; TEXT-ALIGN: center
+}
+.tblsearch INPUT {
+	BORDER-RIGHT: steelblue 1px solid; BORDER-TOP: steelblue 1px solid; BORDER-LEFT: steelblue 1px solid; BORDER-BOTTOM: steelblue 1px solid
+}
+.tblsearch TD {
+	FONT-SIZE: 9pt; COLOR: #204d77
+}
+.tblsearch SELECT {
+	MARGIN: -2px
+}
+.tdMargin3px {
+	WIDTH: 4px
+}
+.tblList {
+	BORDER-COLLAPSE: collapse
+}
+.tblHead {
+	BORDER-COLLAPSE: collapse
+}
+.tblHeadline {
+	BORDER-COLLAPSE: collapse
+}
+.tblWorkArea {
+	BORDER-COLLAPSE: collapse
+}
+.tblFoot {
+	BORDER-COLLAPSE: collapse
+}
+.tblList TD {
+	FONT-SIZE: 9pt
+}
+.tdFootRight {
+	TEXT-ALIGN: right
+}
+.tdWorkArea {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; PADDING-BOTTOM: 12px; PADDING-TOP: 12px
+}
+.search {
+	BORDER-RIGHT: silver 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: silver 1px solid; PADDING-LEFT: 5px; BACKGROUND: #e4e4e4; PADDING-BOTTOM: 5px; BORDER-LEFT: silver 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: silver 1px solid
+}
+.search LABEL {
+	MARGIN-RIGHT: 12px; WHITE-SPACE: nowrap
+}
+INPUT.txtfocus {
+	BORDER-RIGHT: #0066cc 1px solid; BORDER-TOP: #0066cc 1px solid; BORDER-LEFT: #0066cc 1px solid; BORDER-BOTTOM: #0066cc 1px solid
+}
+TEXTAREA {
+	BORDER-RIGHT: silver 1px solid; BORDER-TOP: silver 1px solid; BORDER-LEFT: silver 1px solid; BORDER-BOTTOM: silver 1px solid
+}
+.taboncss {
+	BORDER-RIGHT: #999900 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #999900 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 9pt; FILTER: Alpha(Opacity=50, FinishOpacity=90, Style=1, StartX=0, StartY=5, FinishX=0, FinishY=50); BORDER-LEFT: #999900 1px solid; CURSOR: hand; COLOR: #000000; PADDING-TOP: 5px; BORDER-BOTTOM: #ff9900 2px solid; WHITE-SPACE: nowrap; HEIGHT: 20px; BACKGROUND-COLOR: #c5c5c5
+}
+.taboffcss {
+	BORDER-RIGHT: silver 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: silver 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 9pt; FILTER: Alpha(Opacity=40, FinishOpacity=90, Style=1, StartX=0, StartY=5, FinishX=0, FinishY=50); BORDER-LEFT: silver 1px solid; CURSOR: hand; COLOR: #000000; PADDING-TOP: 5px; BORDER-BOTTOM: silver 0px solid; WHITE-SPACE: nowrap; HEIGHT: 20px; BACKGROUND-COLOR: #e6e6e6
+}
+.tabdiv {
+	BORDER-RIGHT: silver 1px solid; BORDER-TOP: silver 1px solid; MARGIN-TOP: -2px; BORDER-LEFT: silver 1px solid; BORDER-BOTTOM: silver 1px solid
+}
+.btnareaCss {
+	BACKGROUND-COLOR: #d5e5f3; TEXT-ALIGN: right
+}
+.xinghaoCss {
+	COLOR: red
+}
+.treespan {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; COLOR: #000000; PADDING-TOP: 2px; HEIGHT: 17px
+}
+SPAN.clsLabel {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; HEIGHT: 17px
+}
+SPAN.clsMouseOver {
+	BORDER-RIGHT: white 0px solid; PADDING-RIGHT: 3px; BORDER-TOP: white 0px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; BORDER-LEFT: white 0px solid; CURSOR: hand; PADDING-TOP: 2px; BORDER-BOTTOM: white 0px solid; HEIGHT: 17px; BACKGROUND-COLOR: gainsboro
+}
+SPAN.clsMouseDown {
+	BORDER-RIGHT: white 0px solid; PADDING-RIGHT: 3px; BORDER-TOP: white 0px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; BORDER-LEFT: white 0px solid; PADDING-TOP: 2px; BORDER-BOTTOM: white 0px solid; HEIGHT: 17px; BACKGROUND-COLOR: royalblue
+}
+SPAN.clsCurrentFocus {
+	BORDER-RIGHT: white 0px solid; PADDING-RIGHT: 3px; BORDER-TOP: white 0px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; BORDER-LEFT: white 0px solid; PADDING-TOP: 2px; BORDER-BOTTOM: white 0px solid; HEIGHT: 17px; BACKGROUND-COLOR: orange
+}
+SPAN.clsCurrentNoFocus {
+	BORDER-RIGHT: #0099cc 0px solid; PADDING-RIGHT: 3px; BORDER-TOP: #0099cc 0px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 2px; BORDER-LEFT: #0099cc 0px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #0099cc 0px solid; HEIGHT: 17px; BACKGROUND-COLOR: #f2f8ff
+}
+SPAN.Link {
+	BORDER-RIGHT: #ffffff 0px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ffffff 0px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #ffffff 0px solid; CURSOR: hand; PADDING-TOP: 0px; BORDER-BOTTOM: #ffffff 0px solid; TOP: 1px; HEIGHT: 14px
+}
+.hide {
+	DISPLAY: none
+}
+.shown {
+	DISPLAY: block; FILTER: progid:DXImageTransform.Microsoft.Shadow(color='#777777', Direction=135, Strength=4); MARGIN-LEFT: 17px
+}
+menuover {
+	BORDER-RIGHT: #0099cc 1px solid; BORDER-TOP: #0099cc 1px solid; BORDER-LEFT: #0099cc 1px solid; BORDER-BOTTOM: #0099cc 1px solid; BACKGROUND-COLOR: #e8f4ff
+}
+menudown {
+	BORDER-RIGHT: #0099cc 1px solid; BORDER-TOP: #0099cc 1px solid; BORDER-LEFT: #0099cc 1px solid; BORDER-BOTTOM: #0099cc 1px solid; BACKGROUND-COLOR: #99ccff
+}
+.rightmenu-over {
+	BORDER-RIGHT: #eeeeee 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #eeeeee 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; BORDER-LEFT: #eeeeee 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #eeeeee 1px solid; BACKGROUND-COLOR: #cfd1eb
+}
+.rightMenu-right {
+	BORDER-RIGHT: #ded7d6 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #ded7d6 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; BORDER-LEFT: #ded7d6 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #ded7d6 1px solid; BACKGROUND-COLOR: #ded7d6
+}
+.rightmenu-div {
+	BORDER-RIGHT: #99ccff 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #99ccff 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #99ccff 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #99ccff 1px solid; BACKGROUND-COLOR: #ded7d6
+}
+.daohangtitlecss {
+	COLOR: #000000; BACKGROUND-COLOR: #c5d5e8
+}
+.topslectcss {
+	COLOR: #000000; BACKGROUND-COLOR: #d9eafb
+}
+.topinputcss {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; COLOR: #000000; BORDER-BOTTOM: 1px solid; BACKGROUND-COLOR: #d9eafb
+}
+.msgCss {
+	FONT-SIZE: 9pt; COLOR: red
+}
+TABLE {
+	BORDER-COLLAPSE: collapse
+}
+.portaltd1bgimg {
+	BACKGROUND-IMAGE: url(../../../skins/default/images/portal/web-dh.gif)
+}
+.portaltd2bgimg {
+	BACKGROUND-IMAGE: url(../../../skins/default/images/portal/web-dhbt.gif); BORDER-BOTTOM: #6699ff 1px solid
+}
+.msgbgcss {
+	BACKGROUND-COLOR: #bddbff
+}
+.bodyscroll {
+	
+}
+.txtReadOnly {
+	BORDER-RIGHT: #eaf4fd 1px solid; BORDER-TOP: #eaf4fd 1px solid; BORDER-LEFT: #eaf4fd 1px solid; BORDER-BOTTOM: #eaf4fd 1px solid; BACKGROUND-COLOR: #eaf4fd
+}

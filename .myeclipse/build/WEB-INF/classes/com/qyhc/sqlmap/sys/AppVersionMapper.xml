@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AppVersion">
+
+	<insert id="save" parameterType="AppVersion">
+		<selectKey resultType="java.lang.String" order="BEFORE"
+			keyProperty="verid">
+			SELECT f_getkey('') FROM DUAL
+		</selectKey>
+		insert into AppVersion
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			verid,
+			<if test="vernum != null">
+				vernum,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			updatetime,
+			<if test="appurl != null">
+				appurl,
+			</if>
+			<if test="devicetype != null">
+				devicetype,
+			</if>
+
+			<if test="isReview != null">
+				isReview
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{verid,jdbcType=VARCHAR},
+			<if test="vernum != null">
+				#{vernum,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+			sysdate,
+			<if test="appurl != null">
+				#{appurl,jdbcType=VARCHAR},
+			</if>
+			<if test="devicetype != null">
+				#{devicetype,jdbcType=VARCHAR},
+			</if>
+			<if test="isReview != null">
+				#{isReview,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="update" parameterType="AppVersion">
+		update AppVersion
+		<set>
+			<if test="vernum != null">
+				vernum= #{vernum,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				description=#{description,jdbcType=VARCHAR},
+			</if>
+			<if test="appurl != null">
+				appurl=#{appurl,jdbcType=VARCHAR},
+			</if>
+			<if test="devicetype != null">
+				devicetype=#{devicetype,jdbcType=VARCHAR}，
+			</if>
+			<if test="isReview != null">
+				isReview=#{isReview,jdbcType=VARCHAR},
+			</if>
+			updatetime=sysdate
+		</set>
+		where verid = #{verid,jdbcType=VARCHAR}
+	</update>
+
+	<select id="findById" parameterType="java.lang.String"
+		resultType="AppVersion">
+		 <![CDATA[select t.* 
+                  from AppVersion t
+                   where   verid=#{id,jdbcType=VARCHAR}]]>
+	</select>
+	<select id="getTotalCount" resultType="Integer">
+		select count(t.verid) from
+		AppVersion t
+	</select>
+	<select id="queryPage" resultType="AppVersion">
+		<![CDATA[select * from (select aa.*,rownum rn from 
+				(select t.*
+					  from AppVersion t
+					 order by updatetime desc
+				) aa where
+			rownum<=#{endNum,jdbcType=VARCHAR}  ]]>
+		
+		 <![CDATA[ )where rn>#{startNum,jdbcType=VARCHAR}]]>
+	</select>
+</mapper>

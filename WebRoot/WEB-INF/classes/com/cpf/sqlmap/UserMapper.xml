@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cpf.dao.I.sys.UserMapper">
+	 
+	<insert id="save" parameterType="com.cpf.bean.sys.Users">
+		<!-- <selectKey resultType="java.lang.String" order="BEFORE"		keyProperty="userid">
+			SELECT f_getkey('') FROM DUAL
+		</selectKey> -->
+		insert into USERS
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+				USERID,
+			<if test="name != null">
+				name,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	 
+	<select id="findById" parameterType="java.lang.String"
+		resultType="com.cpf.bean.sys.Users">
+		<![CDATA[select u.* from  Users u  where   u.USERID=#{id}]]>
+		
+	</select>
+	 
+	<select id="checkLogin" parameterType="com.cpf.bean.sys.Users" resultType="com.cpf.bean.sys.Users">
+		select u.*  from users u  where  u.name=#{name} 
+	</select>
+	 
+</mapper>

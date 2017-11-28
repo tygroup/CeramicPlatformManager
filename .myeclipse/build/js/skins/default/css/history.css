@@ -1,0 +1,68 @@
+/*tab“≥≤Àµ•*/
+.menut {
+	padding-top : 0px;
+	border-bottom : 1px solid #B0BCA6;
+	background-repeat:repeat-x;
+	background-position:left top;
+	background-image : url('../images/card_left.gif');
+	cursor: pointer;
+	margin-left: 0px;
+	padding-left:0px;
+	margin-bottom:-2;
+	display : block;
+}
+
+.menut span {
+	display : block;
+	width:114px;
+	text-align:center;
+	padding : 6px 0px 4px 10px;
+	background-image : url('../images/card_left.gif');
+	background-repeat:repeat-x;
+	background-position:0px top;
+	background-position :0px 0px;
+	background-position-x:right;
+	background-position :0px -1px;
+	color:white;
+	display : block;
+	font-size : 12px;
+	vertical-align:middle;
+	white-space:nowrap;border:0px solid red;
+}
+
+.menut.current {
+	padding-top : 0px;
+	padding-left:0px;
+	border-bottom :  1px solid #ffffff;
+	background-position :0px bottom;
+	display:block;
+	background-repeat:repeat-x;
+	background-image : url('../images/card_left.gif');
+}
+
+.menut.current span {
+	padding : 6px 0px 4px 10px;
+	background-position :0px bottom;
+	background-position-x:right;
+	background-image : url('../images/card_right.gif');
+	background-repeat:repeat-x;
+	color:white;
+	display : block;
+	font-size : 12px;
+	vertical-align:middle;
+	white-space:nowrap; border:0px solid red;
+}
+.closecss
+{
+
+height:15px;
+width:14px;
+margin-left:0px;
+}
+.closecss.mouseover
+{
+
+height:15px;
+width:14px;
+margin-left:0px;
+}

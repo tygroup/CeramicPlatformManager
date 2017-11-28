@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MallGoods" >
+ 
+ <insert id="save" parameterType="MallGoods" >
+	    <selectKey resultType="java.lang.String"  order="BEFORE" keyProperty="goodsid">  
+	 	 	SELECT f_getkey('')  FROM DUAL   
+	    </selectKey> 
+		insert into mall_goods 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			goodsid,
+			unitid,
+			state,
+			<if test="goodsname != null">
+					goodsname,
+			</if>
+			<if test="picurl != null">
+					picurl,
+			</if>
+			<if test="descriptions != null">
+						descriptions,
+			</if>
+			
+			<if test="typeid != null">
+						typeid,
+			</if>
+			 
+			<if test="cushprice != null">
+					 cushprice,
+			 </if>
+			 <if test="attachurl != null">
+					 attachurl,
+			 </if>
+			 <if test="goodsstock != null">
+					 goodsstock,
+			 </if>
+			 	<if test="goodspar != null">
+					 goodspar, 
+				</if>
+			 <if test="freight != null">
+					 freight ,
+			</if>
+			<if test="isrecommend != null">
+					 isrecommend ,
+			</if>
+			 edittime 
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				#{goodsid,jdbcType=VARCHAR},
+				#{unitid,jdbcType=VARCHAR},
+				0,
+				
+				<if test="goodsname != null">
+					#{goodsname,jdbcType=VARCHAR},
+				</if>
+				<if test="picurl != null">
+					#{picurl,jdbcType=VARCHAR},
+				</if>
+				<if test="descriptions != null">
+					#{descriptions,jdbcType=VARCHAR},
+				</if>
+				<if test="typeid != null">
+					#{typeid,jdbcType=VARCHAR},
+				</if>
+				<if test="cushprice != null">
+					#{cushprice,jdbcType=DOUBLE},
+				</if>
+				<if test="attachurl != null">
+					#{attachurl,jdbcType=VARCHAR},
+				</if>
+				<if test="goodsstock != null">
+					#{goodsstock,jdbcType=DECIMAL},
+				</if>
+				<if test="goodspar != null">
+					#{goodspar,jdbcType=VARCHAR},
+				</if>
+				<if test="freight != null">
+					#{freight,jdbcType=VARCHAR},
+				</if>
+				<if test="isrecommend != null">
+					#{isrecommend,jdbcType=VARCHAR},
+				</if>
+				sysdate 
+		</trim>
+	</insert>
+	<update id="update" parameterType="MallGoods">
+		update mall_goods
+		<set>    state=0,
+				<if test="unitid != null">
+					unitid = #{unitid,jdbcType=VARCHAR},
+				</if>
+				<if test="goodsname != null">
+					goodsname = #{goodsname,jdbcType=VARCHAR},
+				</if>
+				<if test="picurl != null">
+					picurl=#{picurl,jdbcType=VARCHAR},
+				</if>
+				<if test="descriptions != null">
+					descriptions=#{descriptions,jdbcType=VARCHAR},
+				</if>
+				<if test="typeid != null">
+					typeid=#{typeid,jdbcType=VARCHAR},
+				</if>
+				<if test="cushprice != null">
+					cushprice=#{cushprice,jdbcType=DOUBLE},
+				</if>
+				<if test="attachurl != null">
+					attachurl=#{attachurl,jdbcType=VARCHAR},
+				</if>
+				<if test="goodsstock != null">
+					goodsstock=#{goodsstock,jdbcType=DECIMAL},
+				</if>
+				<if test="edittime != null">
+					edittime=#{edittime,jdbcType=DATE},
+				</if>
+				<if test="freight != null">
+					freight = #{freight,jdbcType=VARCHAR},
+				</if>
+				<if test="isrecommend != null">
+					isrecommend = #{isrecommend,jdbcType=VARCHAR},
+				</if>
+				<if test="goodspar != null">
+					goodspar = #{goodspar,jdbcType=VARCHAR},
+				</if>
+		</set>
+		where goodsid = #{goodsid,jdbcType=VARCHAR}
+	</update>
+	
+	<update  id="deleteByIds">
+		update mall_goods
+		<set>
+				state=1
+		</set>
+		<where>
+			<foreach close=")" collection="array" index="index" item="item" open="(" separator="or">
+				goodsid=#{item,jdbcType=VARCHAR}
+			</foreach>
+		</where>
+	</update>
+	<update  id="deleteStateByIds">
+		update mall_goods
+		<set>
+				state=2
+		</set>
+		<where>
+			<foreach close=")" collection="array" index="index" item="item" open="(" separator="or">
+				goodsid=#{item,jdbcType=VARCHAR}
+			</foreach>
+		</where>
+	</update>
+	
+	<select id="findById" parameterType="java.lang.String" resultType="MallGoods">
+		 <![CDATA[select t.*,ts.typename from mall_goods t left join MALL_GOODS_TYPE ts
+			    on ts.typeid = t.typeid where t.goodsid =#{id,jdbcType=VARCHAR}]]>
+	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[select count(t.goodsid)
+			  from mall_goods t
+			  left join MALL_GOODS_TYPE ts
+			    on ts.typeid = t.typeid
+			     left join  certificationunit un on un.unitid=t.unitid
+			 where   t.state <>2
+				 ]]>
+		
+			<if test="typeid != null and  typeid !=''">
+			and t.typeid =#{typeid}
+		</if>
+		<if test="unitid != null and  unitid !='' ">
+			and t.unitid =#{unitid}
+		</if>
+		<if test="goodsname != null and  goodsname !=''  ">
+			and  t.goodsname like concat(CONCAT('%',#{goodsname}),'%')
+		</if>
+		
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="MallGoods">
+		<![CDATA[select *  from (select aa.*, rownum rn
+          from (select t.*,ts.typename,un.unitname
+			  from mall_goods t
+			  left join MALL_GOODS_TYPE ts
+			    on ts.typeid = t.typeid
+			  left join  certificationunit un on un.unitid=t.unitid
+			  where t.state<>2]]>
+		
+		<if test="typeid != null and  typeid !=''">
+			and t.typeid =#{typeid}
+		</if>
+		<if test="unitid != null and  unitid !='' ">
+			and t.unitid =#{unitid}
+		</if>
+		<if test="goodsname != null and  goodsname !=''  ">
+			and  t.goodsname like concat(CONCAT('%',#{goodsname}),'%')
+		</if>
+	 
+       <![CDATA[ order by edittime desc) aa
+         where 	rownum<=#{endNum,jdbcType=VARCHAR} order by edittime desc)where rn>#{startNum,jdbcType=VARCHAR}]]> order by edittime desc
+	</select>
+ 
+	<update id="updateSH"  parameterType="map">
+		update mall_goods
+		<set>
+				<if test="state != null">
+					state=#{state},
+				</if>
+				edittime=sysdate
+		</set>
+		where goodsid = #{goodsid,jdbcType=VARCHAR}
+	</update>
+	 
+ 
+	
+</mapper>

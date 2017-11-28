@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MallGoodsType" >
+ 
+ <insert id="save" parameterType="MallGoodsType" >
+	    <selectKey resultType="java.lang.String"  order="BEFORE" keyProperty="typeid">  
+	 	 	SELECT f_getkey('')  FROM DUAL   
+	    </selectKey> 
+		insert into mall_goods_type 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			typeid,
+			<if test="parentid != null">
+					parentid,
+			</if>
+			<if test="typename != null">
+					typename,
+			</if>
+			STATE
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				#{typeid,jdbcType=VARCHAR},
+				<if test="parentid != null">
+					#{parentid,jdbcType=VARCHAR},
+				</if>
+				<if test="typename != null">
+					#{typename,jdbcType=VARCHAR},
+				</if>
+				0
+		</trim>
+	</insert>
+	<update id="update" parameterType="MallGoodsType">
+		update mall_goods_type
+		<set>     
+				<if test="parentid != null">
+					parentid=#{parentid,jdbcType=VARCHAR},
+				</if>
+				<if test="typename != null">
+					typename=#{typename,jdbcType=VARCHAR},
+				</if>
+			
+		</set>
+		where typeid = #{typeid,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="findById" parameterType="java.lang.String" resultType="MallGoodsType">
+		 <![CDATA[select t.*,p.typename as fathername from mall_goods_type t 
+          left join mall_goods_type p on t.parentid=p.typeid where t.typeid = #{typeid,jdbcType=VARCHAR}]]>
+	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[
+			select  count(t.typeid) from mall_goods_type t 
+          left join mall_goods_type p on p.typeid=t.parentid   where t.state=0
+		]]>
+		<if test="goodstypename != null and  goodstypename !=''  ">
+			and  t.typename like concat(CONCAT('%',#{goodstypename}),'%')
+		</if>
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="MallGoodsType">
+		<![CDATA[select *  from (select aa.*, rownum rn
+          from (select t.*,p.typename as fathername from mall_goods_type t 
+          left join mall_goods_type p on p.typeid=t.parentid   where t.state=0]]>
+		 
+		<if test="goodstypename != null and  goodstypename !=''  ">
+			and  t.typename like concat(CONCAT('%',#{goodstypename}),'%')
+		</if>
+		 
+       <![CDATA[ order by t.typeid desc) aa
+         where 	rownum<=#{endNum,jdbcType=VARCHAR} order by typeid desc)where rn>#{startNum,jdbcType=VARCHAR}]]> order by typeid desc
+	</select>
+ 
+	<select id="findAll"  resultType="MallGoodsType">
+		<![CDATA[select  * from mall_goods_type where  state=0]]>
+	</select>
+ <update  id="deleteByIds">
+		update mall_goods_type
+		<set>
+				state=1
+		</set>
+		<where>
+			<foreach close=")" collection="array" index="index" item="item" open="(" separator="or">
+				typeid=#{item,jdbcType=VARCHAR}
+			</foreach>
+		</where>
+	</update>
+</mapper>

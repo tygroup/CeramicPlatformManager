@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SysModule">
+
+	<insert id="save" parameterType="SysModule">
+		insert into SYS_MODULE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+
+			MODULEID,
+
+			<if test="parentid != null">
+				PARENTID,
+			</if>
+			<if test="modulename != null">
+				MODULENAME,
+			</if>
+			<if test="moduleord != null">
+				MODULEORD,
+			</if>
+			<if test="url != null">
+				URL,
+			</if>
+			<if test="state != null">
+				STATE,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			f_getkey(''),
+			<if test="parentid != null">
+				#{parentid,jdbcType=VARCHAR},
+			</if>
+			<if test="modulename != null">
+				#{modulename,jdbcType=VARCHAR},
+			</if>
+			<if test="moduleord != null">
+				#{moduleord,jdbcType=DECIMAL},
+			</if>
+			<if test="url != null">
+				#{url,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				#{state,jdbcType=DECIMAL},
+			</if>
+		</trim>
+	</insert>
+	<update id="update" parameterType="SysModule">
+		update SYS_MODULE
+		<set>
+			<if test="parentid != null">
+				PARENTID = #{parentid,jdbcType=VARCHAR},
+			</if>
+			<if test="modulename != null">
+				MODULENAME = #{modulename,jdbcType=VARCHAR},
+			</if>
+			<if test="moduleord != null">
+				MODULEORD = #{moduleord,jdbcType=DECIMAL},
+			</if>
+			<if test="url != null">
+				URL = #{url,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				STATE = #{state,jdbcType=DECIMAL},
+			</if>
+		</set>
+		where MODULEID = #{moduleid,jdbcType=VARCHAR}
+	</update>
+	<delete id="delete" parameterType="SysModule">
+		delete from SYS_MODULE where
+		MODULEID=#{moduleid}
+	</delete>
+	<delete id="deleteById" parameterType="java.lang.String">
+		delete from SYS_MODULE
+		where
+		MODULEID=#{moduleid}
+	</delete>
+	<select id="findById" parameterType="java.lang.String"
+		resultType="SysModule">
+		select * from SYS_MODULE
+		where
+		MODULEID=#{moduleid}
+	</select>
+	<delete id="deleteByIds">
+		delete from SYS_MODULE
+		<where>
+			<foreach collection="array" index="index" item="item" open="("
+				separator="or" close=")">
+				MODULEID=#{item}
+			</foreach>
+		</where>
+	</delete>
+	<select id="findByParentId" parameterType="java.lang.String"
+		resultType="SysModule">
+		select * from SYS_MODULE where PARENTID=#{parentid}
+	</select>
+	<!-- h_parentid为父节点ID参数，h_state为状态参数 all表示全部 -->
+	<select id="findAll" parameterType="map" resultType="SysModule">
+		select *
+		from SYS_MODULE
+		<where>
+			<if test="h_parentid!=null and h_parentid!='' ">
+				PARENTID = #{h_parentid}
+			</if>
+			<if test="h_state!= null and h_state!= '' and h_state!= 'all' ">
+				AND STATE = #{h_state}
+			</if>
+		</where>
+
+		order by MODULEORD
+	</select>
+
+	<select id="findAllByProperty" parameterType="SysModule"
+		resultType="SysModule">
+		select *
+		from SYS_MODULE where 1=1
+
+		<if test="moduleid!=null and moduleid!='' ">
+			and MODULEID = #{moduleid}
+		</if>
+		<if test="parentid!= null and parentid!= ''">
+			AND PARENTID = #{parentid}
+		</if>
+		<if test="state!= null and state!= ''">
+			AND STATE = #{state}
+		</if>
+		<if test="modulename!= null and modulename!= ''">
+			AND MODULENAME = #{modulename}
+		</if>
+
+		order by MODULEORD
+	</select>
+	<select id="findTreeByParentIdAndLevel" parameterType="map"
+		resultType="SysModule">
+		<![CDATA[select * from (SELECT x.*, level AS
+		layerNum,decode(CONNECT_BY_ISLEAF, 1, 'Y', 'N') AS nodeType FROM
+		SYS_MODULE X connect by prior X.moduleid = X.parentid start with
+		PARENTID = #{h_parentid} order by x.moduleord ) where layerNum<=#{h_level}]]>
+	</select>
+
+
+	<select id="findUserGrantByaccountId" parameterType="java.lang.String"
+		resultType="SysModule">
+		<if test="_parameter  != '100000000000000001'">
+				 select models.*  from sys_module models
+            left join sys_rights gl
+              on gl.moudleid = models.moduleid
+            left join sys_member_role role
+              on role.roleid = gl.roleid
+            left join users mm
+              on mm.userid = role.memberid
+          where mm.userid=#{id} and mm.state=1 order by models.moduleord 
+			</if>
+			<if test="_parameter  == '100000000000000001'">
+				select models.*  from sys_module models where state=1 order by models.moduleord 
+			</if>
+	</select>
+</mapper>

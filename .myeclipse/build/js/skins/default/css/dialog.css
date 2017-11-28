@@ -1,0 +1,81 @@
+.dialogdiv table
+{
+border-collapse:collapse;
+table-layout: fixed;
+}
+.dialogTi table
+{
+background:#ffffff;
+}
+.dialogTi #titdleft span
+{
+border-width: 1px;
+	border-style: solid;
+	background:buttonface;
+	border-color: buttonhighlight buttonface buttonface buttonhighlight;
+	width:        100%;
+	height:        100%;
+	white-space:   nowrap;
+	vertical-align:center;
+	padding-top:3;
+}
+.dialogTi #titdleft
+{
+background:buttonface;
+font-size:9pt;
+height:20;
+border:1 solid dimgray;
+text-align:center;
+vertical-align:top;
+
+}
+.dialogTi td
+{
+border:1 solid #cccccc;
+padding-top:0px;
+padding-bottom:0px;
+text-align:center;
+font-size:9pt;
+white-space:   nowrap;
+overflow:      hidden;
+text-overflow: ellipsis;
+height:20px;
+vertical-align:top;
+
+}
+.dialogTi span
+{
+	white-space:   nowrap;
+	overflow:      hidden;
+	text-overflow: ellipsis;
+	cursor:hand;
+}
+.dialogToucss td
+{
+background:buttonface;
+font-size:9pt;
+height:20;
+border:1 solid dimgray;
+text-align:center;
+vertical-align:top;
+}
+.dialogToucss span{
+	border-width: 1px;
+	border-style: solid;
+	background:buttonface;
+	border-color: buttonhighlight buttonface buttonface buttonhighlight;
+	width:        100%;
+	height:        100%;
+	white-space:   nowrap;
+	vertical-align:center;
+	padding-top:3;
+}
+.dialogToucss label{
+	font-family:Marlett;
+	font-size:8;
+
+}
+.row_selected td{
+	background:lightsteelblue¡¡;
+	}
+

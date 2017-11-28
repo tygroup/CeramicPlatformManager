@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="basic" extends="qyhc">
+	
+		<action name="datadetils_*" class="datadetilsAction" method="{1}">
+			<result name="list">/jsp/basic/datadetils/datalist.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">datadetils_list.action</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="zjlist">/jsp/basic/datadetils/wsplist.jsp</result>
+			<result name="wspfindbyid_ok">/jsp/basic/datadetils/wspdata_addEdit.jsp</result>
+			
+			<result name="lookinfo">/jsp/basic/datadetils/lookinfo.jsp</result>
+			<result name="findbyid_ok">/jsp/basic/datadetils/data_addEdit.jsp</result>
+			<result name="addeditzj_ok" type="redirectAction">
+				<param name="actionName">datadetils_wxplist.action</param>
+				<param name="result">${result}</param>
+			</result>
+			
+		</action>
+		 
+	 	<action name="dateTypes_*" class="dateTypesAction" method="{1}">
+			<result name="list">/jsp/basic/datatypes/types_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">dateTypes_list.action</param>
+				<param name="result">${result}</param>
+				<param name="d-16544-p">${currentPage}</param>
+				
+			</result>
+			<result name="findbyid_ok">/jsp/basic/datatypes/types_addEdit.jsp</result>
+			
+		</action>
+		
+		<!-- 手机广告页 jml -->
+		<action name="adimages_*" class="carouselAction" method="{1}">
+			<result name="list">jsp/sys/adpage/adpage_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">adimages_list</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="findbyid_ok">jsp/sys/adpage/addEdit.jsp</result>
+		</action>
+		<!-- 关于我们 jml -->
+		<action name="aboutme_*" class="aboutMeAction" method="{1}">
+			<result name="list">jsp/basic/aboutme/aboutme_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">aboutme_list</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="findbyid_ok">jsp/basic/aboutme/addEdit.jsp</result>
+		</action>
+		
+		
+			<!-- 广告页 jml  -->
+		<action name="adshow_*" class="adShowAction" method="{1}">
+			<result name="list">jsp/basic/adshow/show_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">adshow_list</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="findbyid_ok">jsp/basic/adshow/addEdit.jsp</result>
+		</action>
+		
+			<!-- 认证单位 jml  -->
+		<action name="unit_*" class="certificationUnitAction" method="{1}">
+			<result name="list">jsp/basic/unit/unit_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">unit_list</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="findbyid_ok">jsp/basic/unit/addEdit.jsp</result>
+		</action>
+		<!-- 护理员库 jml -->
+		<action name="nurse_*" class="nurseAction" method="{1}">
+			<result name="list">jsp/basic/nurse/nurse_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">nurse_list</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="findbyid_ok">jsp/basic/nurse/addEdit.jsp</result>
+		</action>
+		
+	</package>
+</struts>
+

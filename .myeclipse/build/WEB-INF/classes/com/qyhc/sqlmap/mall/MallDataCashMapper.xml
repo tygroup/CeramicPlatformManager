@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MallDataCash" >
+
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[
+		select count(t.orderid)
+           from     Mall_PayBills t
+           left join userinfo buyer on buyer.userid=t.buyerid 
+           left join userinfo seller on seller.userid=t.sellerid 
+           left join mall_goods  g on g.goodsid=t.goodsid
+           where 1=1
+		]]>
+		 <if test="userid != null and  userid !=''">
+			and t.sellerid =#{userid}
+		</if>
+		 <if test="goodsname != null and  goodsname !=''">
+			and g.GOODSNAME like concat(CONCAT('%',#{goodsname}),'%')
+		</if>
+		 <if test="begintime != null and  begintime !=''">
+			and t.paytime &gt;=TO_DATE(#{begintime},'YYYY-MM-DD')
+		</if>
+		<if test="endtime != null and  endtime !=''">
+			and t.paytime &lt;=TO_DATE(#{endtime},'YYYY-MM-DD')
+		</if>
+		<if test="state != null and  state !=''">
+			and t.paytype =#{state}
+		</if>
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="MallDataCash">
+		<![CDATA[select *  from (select aa.*, rownum rn
+          from (select t.*,
+			          buyer.username as buyername,
+			          seller.username as sellername ,g.goodsname
+           from     Mall_PayBills t
+           left join userinfo buyer on buyer.userid=t.buyerid 
+           left join userinfo seller on seller.userid=t.sellerid 
+           left join mall_goods  g on g.goodsid=t.goodsid
+           where 1=1]]>
+		 
+		<if test="userid != null and  userid !=''">
+			and t.sellerid =#{userid}
+		</if>
+		 <if test="goodsname != null and  goodsname !=''">
+			and g.GOODSNAME like concat(CONCAT('%',#{goodsname}),'%')
+		</if>
+		 <if test="begintime != null and  begintime !=''">
+			and t.paytime &gt;=TO_DATE(#{begintime},'YYYY-MM-DD')
+		</if>
+		<if test="endtime != null and  endtime !=''">
+			and t.paytime &lt;=TO_DATE(#{endtime},'YYYY-MM-DD')
+		</if>
+		<if test="state != null and  state !=''">
+			and t.paytype =#{state}
+		</if>
+       <![CDATA[ order by t.paytime desc) aa
+         where 	rownum<=#{endNum,jdbcType=VARCHAR} order by paytime desc)where rn>#{startNum,jdbcType=VARCHAR}]]> order by paytime desc
+	</select>
+ 
+</mapper>

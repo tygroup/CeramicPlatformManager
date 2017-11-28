@@ -1,0 +1,200 @@
+/*-------------------按钮样式button---------------------------*/
+.advbutton {
+	overflow:	hidden;
+	text-align:	center;
+	vertical-align:	middle;
+	font-size: 9pt;
+	cursor: hand;
+	height: 20px;
+	background-color: white;
+	background-image:url(../images/button.gif);
+	border: #487094 1px solid;
+	padding-left:2px;
+	padding-right:2px;
+    color:#1F4F77
+}
+.advbutton-over
+ {
+	overflow:	hidden;
+	text-align:	center;
+	vertical-align:	middle;
+	border: #467194 1px solid;
+	font-size: 9pt;
+	cursor: hand;
+	height: 20px;
+	background-color: white;
+	padding-left:2px;
+	padding-right:2px;
+	color:#427DAD
+
+}
+/*-------------------日期微调输入框input样式---------------------------*/
+.dateadjust
+{
+display:inline;
+}
+.dateadjust input{
+	width:55;
+	height:19;
+	position:relative;
+	left:5;
+	text-align:center;
+	border:1 solid #8DB1D3;
+	}
+	/*-------------------日期微调按钮button样式---------------------------*/
+.dateadjust button{
+	width:17;
+	position:absolute;
+	font-size:7;
+	font-family:webdings;
+	text-align:center;
+	background: azure;
+	border-width:1px;
+	border-style:solid;
+	border-color:#8DB1D3;
+	}
+/*-------------------月份选择样式---------------------------*/
+.month{
+	border:1px solid #8DB1D3;
+	position:relative;
+}
+.month select{
+	margin-left:-3px;
+	margin-top:-2px;
+	margin-bottom:-2px;
+}
+/*-------------------数字微调输入框input样式---------------------------*/
+.adjust
+{
+display:inline;
+}
+.adjust input{
+	width:100%;
+	height:22;
+	padding-right:17;
+	text-align:right;
+	}
+	/*-------------------数字微调按钮button样式---------------------------*/
+.adjust button{
+	width:16;
+	height:9;
+	position:absolute;
+	font-size:7;
+	font-family:webdings;
+	background-color:white;
+	border:silver solid 1;
+	
+	}
+
+
+/*-------------------按钮外面的span样式---------------------------*/
+.buttonskin{
+	border-width: 1px;
+	border-style: solid;
+	border-color: gray background　background　gray;
+	margin-right:1;
+	}
+/*-------------------时间输入框外div样式---------------------------*/
+.divdate input
+{
+border:1 solid gray;
+}
+.date{
+	width:162;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color='#777777', Direction=135, Strength=4);
+	}
+.date.datebackground
+{
+background: #e4e4e4;
+}
+/*-------------------时间输入框日期表格table样式---------------------------*/
+.date.date_table{
+	width:100%;
+	border:1px solid #8DB1D3;
+	padding:2;
+	}
+/*-------------------时间输入框时间输入表格table样式---------------------------*/
+.date.time_table{
+	width:100%;
+	border:1px solid ;
+	border-color:#8DB1D3;
+	padding:2;
+	position:relative;
+	top:-1;
+	}
+/*-------------------时间输入框时间输入表格单元格td样式---------------------------*/
+.date.date_table.date_time td{
+	font-size:9pt;
+	}
+/*-------------------时间输入框时间输入表格样式---------------------------*/
+.date.date_table.date_time{
+	width:100%;
+	}
+/*-------------------时间输入框弹出表格单元格td样式---------------------------*/
+.date_body td{
+	width:22;
+	font-size:9pt;
+	text-align:center;
+	cursor:default;
+	}
+/*-------------------时间输入框弹出表格table样式---------------------------*/
+.date_body{
+	position:relative;
+	top:0;
+	border:1px solid;
+	border-color:#8DB1D3;
+	}
+/*-------------------时间输入框日期输入表格星期行td样式---------------------------*/
+.date_body.date_title td{
+	background: #8DB1D3;
+	color:white;
+	}
+/*-------------------时间输入框当前选中日期单元格td样式---------------------------*/
+.date.date_select{
+	background:darkblue;
+	color:white;
+	}
+/*-------------------时间输入框时间鼠标移上单元格td样式---------------------------*/
+.date.date_mouseover{
+	background:gray;
+	}
+/*-------------------时间输入框时间当前系统日期单元格td样式---------------------------*/
+.date.date_today{
+	background: orange;
+	}
+/*-------------------时间输入框确认按钮button样式---------------------------*/
+.date_button{
+	width:19;
+	height:19;
+	background: azure;
+	font-family:webdings;
+	font-size:9;
+	border-width:1px;
+	border-style:solid;
+	border-color:#8DB1D3 #8DB1D3 #8DB1D3 azure;
+	position:relative;
+	top:0;
+	left:0;
+	}
+/*-------------------日期输入框样式---------------------------*/
+.date_input{
+	border:1 solid #8DB1D3;
+	text-align:center;
+	height:19;
+}
+/*-------------------时间按钮样式button---------------------------*/
+.time_button {
+	position:relative;
+	top:0;
+	font-family:webdings;
+	width:19;
+	height:19;
+	background:azure;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #8DB1D3;
+}
+
+
+
+

@@ -1,0 +1,75 @@
+/*====================================================================
+Title : Global.css
+Author : Nick 
+URL : 
+Description : For all pages
+Created : 2006-10-04
+Modified : 
+====================================================================*/
+
+body
+{
+	margin:0;
+	padding:0;
+	color:#000000;
+	font-size:12px;
+	font-family:arial,verdana,sans-serif;
+	text-align:left;
+	overflow:auto;
+}
+
+img{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+td
+{
+	font-size:12px;
+	WORD-BREAK: break-all; WORD-WRAP: break-word;
+}
+tr{
+	TABLE-LAYOUT: fixed; WORD-BREAK: break-all;
+	}
+dl,
+dt,
+dd,
+ul,
+li,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p{
+	margin:0;
+	padding:0;
+}
+dl,
+dd,
+dt,
+ul,
+li{
+	list-style-type:none;
+	list-style-image:url();
+}
+input,
+textarea,
+select,
+option
+{
+	margin:1px 0;
+	background: transparent;
+	font-family:"宋体", "Arial", "Verdana";
+}
+a:link, a:visited{
+	color:#333333;
+	text-decoration:underline;
+}
+a:hover{
+	color:#FFCC00;
+	text-decoration:underline;
+}

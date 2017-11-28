@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+</HEAD>
+
+<BODY>
+<script language="JavaScript"
+  src="http://www.meizz.com/Web/Plugs/MzTreeView10.js"></script>
+<base href="http://www.meizz.com/Web/">
+<style>
+A.MzTreeview
+{
+  font-size: 9pt;
+  padding-left: 3px;
+}
+</style>
+<script language="JavaScript">
+  var tree = new MzTreeView("tree");
+
+  tree.icons["property"] = "property.gif";
+  tree.icons["css"] = "collection.gif";
+  tree.icons["book"]  = "book.gif";
+  tree.iconsExpand["book"] = "bookopen.gif"; //展开时对应的图片
+
+  tree.setIconPath("http://www.meizz.com/Icons/TreeView/"); //可用相对路径
+
+  tree.nodes["0_-1"] = "text:WEB 编程";
+  tree.nodes["-1_001"] = "text:代码示例; data:id=100"; 
+  tree.nodes["-1_002"] = "text:梅花雪脚本控件集; data:id=200";
+  tree.nodes["-1_003"] = "text:CSS; icon:css; data:id=310"; 
+  tree.nodes["-1_004"] = "text:DHTML; data:id=320"; 
+  tree.nodes["-1_005"] = "text:HTML; data:id=300"; 
+  tree.nodes["-1_006"] = "text:JavaScript; icon:book; data:id=400";
+  tree.nodes["001_001001"] = "text:属性; icon: property; data:id=322"; 
+  tree.nodes["001_001002"] = "text:方法; data:id=323"; 
+  tree.nodes["001_001003"] = "text:事件; icon:event; data:id=324"; 
+  tree.nodes["004_004001"] = "text:集合; data:id=325"; 
+  tree.nodes["004_004002"] = "text:对象; data:id=407"; 
+  tree.nodes["005_005001"] = "text:方法; data:id=406"; 
+  tree.nodes["005_005001"] = "text:运算符; data:id=408"; 
+  tree.nodes["006_006001"] = "text:属性; data:id=409"; 
+  tree.nodes["003_003001"] = "text:Date; url:Article.asp; data:id=140";
+  tree.nodes["003_003001"] = "text:toString; url:Article.asp; data:id=127";
+  tree.nodes["003_003002"] = "text:||; url:Article.asp; data:id=239";
+  tree.nodes["003_003003"] = "text:E;  url:Article.asp; data:id=163";
+
+  tree.setURL("Catalog.asp");
+  tree.setTarget("MzMain");
+  document.write(tree.toString());    //亦可用 obj.innerHTML = tree.toString();
+</script>
+
+</BODY>
+</HTML>

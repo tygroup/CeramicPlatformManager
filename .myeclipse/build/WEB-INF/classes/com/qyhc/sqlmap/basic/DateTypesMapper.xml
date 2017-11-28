@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DateTypes" >
+ 
+ <insert id="save" parameterType="DateTypes" >
+	    <selectKey resultType="java.lang.String"  order="BEFORE" keyProperty="typeid">  
+	 	 	SELECT f_getkey('')  FROM DUAL   
+	    </selectKey> 
+		insert into date_types 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			 typeid,
+			<if test="typeid != null">
+					parentid,
+			</if>
+			<if test="typename != null">
+					 typename,
+			</if>
+			state,type
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				#{typeid,jdbcType=VARCHAR},
+				<if test="typeid != null">
+					#{parentid,jdbcType=VARCHAR},
+				</if>
+				<if test="typename != null">
+					#{typename,jdbcType=VARCHAR},
+				</if>
+				0,1
+		</trim>
+	</insert>
+	<update id="update" parameterType="DateTypes">
+		update date_types
+		<set>     
+				<if test="parentid != null">
+					 parentid=#{parentid,jdbcType=VARCHAR},
+				</if>
+				<if test="typename != null">
+					 typename=#{typename,jdbcType=VARCHAR},
+				</if>
+			
+		</set>
+		where typeid = #{typeid,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="findById" parameterType="java.lang.String" resultType="DateTypes">
+		 <![CDATA[select t.*,p.typename as fathername from date_types t 
+          left join date_types p on p.typeid=t.parentid  where t.typeid = #{typeid,jdbcType=VARCHAR}]]>
+	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[
+			select  count(t.typeid) from date_types t 
+          left join date_types p on p.typeid=t.parentid   where 1=1
+		]]>
+		<if test="goodstypename != null and  goodstypename !=''  ">
+			and  t.typename like concat(CONCAT('%',#{goodstypename}),'%')
+		</if>
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="DateTypes">
+		<![CDATA[select *  from (select aa.*, rownum rn
+          from (select t.*,p.typename as fathername from date_types t 
+          left join date_types p on p.typeid=t.parentid   where 1=1]]>
+		 
+		<if test="goodstypename != null and  goodstypename !=''  ">
+			and  t.typename like concat(CONCAT('%',#{goodstypename}),'%')
+		</if>
+		 
+       <![CDATA[ order by t.typeid desc) aa
+         where 	rownum<=#{endNum,jdbcType=VARCHAR} order by typeid desc)where rn>#{startNum,jdbcType=VARCHAR}]]> order by typeid desc
+	</select>
+ 
+	<select id="findAll"  resultType="DateTypes">
+		<![CDATA[select  * from date_types where  type=1]]>
+	</select>
+ 
+</mapper>

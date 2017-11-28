@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="MallOrder" >
+	
+	<select id="findById" parameterType="java.lang.String" resultType="MallOrderDetail">
+		 <![CDATA[select  d.*,g.goodsname from mall_orderdetail d 
+		 left join mall_goods g on g.goodsid=d.goodsid
+		  where d.orderid = #{id,jdbcType=VARCHAR}]]>
+	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[
+		select count(t.orderid)
+           from     MALL_ORDER t
+           left join userinfo buyer on buyer.userid=t.buyerid 
+           left join userinfo seller on seller.userid=t.sellerid 
+           where 1=1
+		]]>
+		  <if test="userid != null and  userid !=''">
+			and t.sellerid =#{userid}
+		</if>
+		 <if test="goodsname != null and  goodsname !=''">
+			and buyer.username like concat(CONCAT('%',#{goodsname}),'%')
+		</if>
+		 <if test="begintime != null and  begintime !=''">
+			and t.ordertime &gt;=TO_DATE(#{begintime},'YYYY-MM-DD')
+		</if>
+		<if test="endtime != null and  endtime !=''">
+			and t.ordertime &lt;=TO_DATE(#{endtime},'YYYY-MM-DD')
+		</if>
+		<if test="state != null and  state !=''">
+			and t.orderstate =#{state}
+		</if>
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="MallOrder">
+		<![CDATA[select *  from (select aa.*, rownum rn
+          from (select t.*,
+			          buyer.username as buyername,
+			          seller.username as sellername 
+           from     MALL_ORDER t
+           left join userinfo buyer on buyer.userid=t.buyerid 
+           left join userinfo seller on seller.userid=t.sellerid 
+           where 1=1]]>
+		 <if test="userid != null and  userid !=''">
+			and t.sellerid =#{userid}
+		</if>
+		 <if test="goodsname != null and  goodsname !=''">
+			and buyer.username like concat(CONCAT('%',#{goodsname}),'%')
+		</if>
+		 <if test="begintime != null and  begintime !=''">
+			and t.ordertime &gt;=TO_DATE(#{begintime},'YYYY-MM-DD')
+		</if>
+		<if test="endtime != null and  endtime !=''">
+			and t.ordertime &lt;=TO_DATE(#{endtime},'YYYY-MM-DD')
+		</if>
+		<if test="state != null and  state !=''">
+			and t.orderstate =#{state}
+		</if>
+       <![CDATA[ order by t.ordertime desc) aa
+         where 	rownum<=#{endNum,jdbcType=VARCHAR} order by ordertime desc)where rn>#{startNum,jdbcType=VARCHAR}]]> order by ordertime desc
+	</select>
+ 
+ 
+</mapper>

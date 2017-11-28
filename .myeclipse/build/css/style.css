@@ -1,0 +1,113 @@
+body,a{ font-size:12px;}
+/*登录样式*/
+body{background:#f8f8f8;}
+.login{ width:100%; height:100%;  background:#0673bb url(../images/login.jpg) no-repeat center center;}
+.login_div{ position: absolute; top: 50%; left:50%; width:400px; height:530px;padding-left:482px;padding-top:165px;margin-left:-441px; margin-top:-240px; background: url('../images/login_divbg.png') no-repeat;}
+.login form{ width: 250px; height:auto; margin:0 auto;}
+form h2 { line-height: 50px; text-align: center;}
+.login p span input { width: 110px; margin-right: 5px;}
+.login p img { vertical-align: middle; padding-bottom: 5px;}
+.login p label { float: left; display: block; width: 33px; height: 33px; background: #1691d7; display: block;}
+.btn{float: left;  width:200px; height:25px; border:1px #ccc solid; margin-bottom:7px; padding:3px; color:#777; line-height:25px;}
+.dl{ float: left; width:100px; height:35px; background:#1691d7; color:#fff; line-height:35px; border:none; margin-top:5px; cursor:pointer}
+.cz{float: right; width:100px; height:35px; background:#1691d7; color:#fff; line-height:35px; border:none; margin-top:5px; cursor:pointer}
+input[type='button'] {cursor: pointer;}
+
+/**主页面右侧***/
+td,
+th { line-height: 30px; text-align: center; font-size: 12px;}
+th { color: #555;}
+.main { height: 100%; background:#fff url(../images/mainban.jpg) no-repeat center top; padding-right: 120px;}
+.main_ban { padding-top: 30%;}
+.title { height: 35px; background: #fff; border-bottom: 1px solid #eee; line-height: 35px; text-indent: 1em; font-size:12px;}
+.title a { color: #333; padding:0 5px; font-size:12px; text-decoration: none!important;}
+.title a:hover{ background: none!important; color:#333!important; text-decoration:underline!important;}
+.title img { padding-right: 5px;}
+.none { padding:10px}
+.con table { background: #fff; border-left: 1px solid #ddd; border-top: 1px solid #ddd; width:100%; border-collapse:collapse;}
+.con table tr th { text-align:center; background: #ddd; border-right:1px solid #fff; border-bottom: 1px solid #eee; font-size:12px; font-weight:bold;}
+.con table tr td { border-bottom: 1px solid #eee; border-right: 1px solid #eee; color: #555; font-size:12px;}
+.mk_top {  padding: 5px 12px; float: left; }
+.sousuo { float: right; padding: 8px 0 0 20px;}
+.sousuo input[type=text] {color:#333;height:25px; width:250px; background:#fafcfd; border:1px solid #ccd5dd}
+.sousuo .choice {text-align:center; width:250px; line-height:25px; height:25px;background:#fafcfd; border:1px solid #ccd5dd}
+.sousuo select option { text-align:center; line-height:30px}
+.sousuo label {font-size: 14px; margin-left: 20px;}
+.sousuo input.input_sel { background: #48bae6 url(../images/sel.png) no-repeat 8px center;}
+.sousuo input.input_reset { background: #48bae6 url(../images/reset.png) no-repeat 8px center;}
+.sousuo input {  line-height: 25px; padding: 0 8px; color: #fff;  border-radius: 3px; padding-left: 25px;}
+.mk table input[type='button'] { height: 22px; background: #fff; margin: 0 0 5px 5px; padding: 0 5px; border: 1px solid #48bae6; border-radius: 3px; color: #48bae6;}
+.con table input { margin: 0 0 5px 5px; padding: 0 5px; border: 1px solid #ddd;}
+.mk_top input { background: #00beff; padding: 0 10px; margin: 5px 0; height: 25px; color: #fff;}
+.mk_top input.input_del { border-radius: 3px; color: #fff; background: #48bae6 url(../images/del.png) no-repeat 8px center; padding-left: 25px;}
+.mk_top input.input_add { background: #48bae6 url(../images/add.png) no-repeat 8px center; border-radius: 3px; padding-left: 25px;}
+.con { width: 98%; margin: 0 0 20px 12px;}
+.con table .line1 { background: #fff;}
+.con table .line2 { background: #f8f8f8;}
+.con table .qy input { background: #48bae6 url(../images/qy.png) no-repeat 5px center;padding-left: 25px; color: #fff;}
+.con table .jy input { background: #48bae6 url(../images/jy.png) no-repeat 5px center;padding-left: 25px; color: #fff;}
+.pic img{ width: 30px; height: 30px;}
+.user table input { color: #48bae6;  text-indent: 1em; margin: 0; border: none; text-decoration: underline; font-weight: bold;}
+/***********************表单样式*********************/
+.even { background:#eee;}
+.star { float:left; line-height:440px;}
+.cke_chrome { float:left;}
+
+/*info*/
+.list_tit{ width:90%; padding: 10px 0 0 10px;  margin:10px 0 0 10px; background: #fff; border:1px solid #ddd;}
+.list_tit li{ width:975px; margin-left:15px; clear:both;}
+.list_bg{ background:#F7F7F7; }
+.list_l0,.list_l1,.list_l2,.list_l3,.list_l4,.list_l5,.list_l6{ float:left; display:block; height:35px; line-height:35px; border-bottom:1px solid #eee;}
+.haomaTitle {position: relative;width: 600px;height: 50px;margin: 20px 20px 0;}
+.haomaTitle .haoma-inner {position: absolute;width: 600px;height: 25px;line-height: 25px;font-family: "微软雅黑";font-size: 14px;text-indent: 6px;border-left: 3px solid #59AfE4;}
+.form_table td { text-align:left; padding-right::10px; font-size:14px; font-family:"微软雅黑"; height: 40px; line-height: 40px;}
+.form_table td p{ text-align:right; float:left; display:block; margin-right:10px; width:80px; }
+.form_table td.tb_title { font-weight: bold }
+.list_tit .form_table input[type=text], .list_tit .form_table input[type=password]{border:none; height:30px; width:250px; background:#fafcfd; border:1px solid #ccd5dd}
+.list_tit .form_table input[type=checkbox] { background:#000; vertical-align:middle;  height:15px; width:15px; margin:0 2px 0 15px;}
+.list_tit .form_table input.duoxuan { background:#fafcfd; border:1px solid #ccd5dd  }
+.list_tit .form_table input[type=radio] {border:none; height:15px; width:15px; vertical-align:middle;margin:0 8px 0 15px;}
+.list_tit .form_table input[type=button] { border:none;}
+.bt_add{ width:50px; height:30px; background:#1386c1; color:#fff; text-align:center; border-radius:3px; margin:20px; }
+.bt_add a{color:#FFFFFF;}
+.list_tit .form_table .choice { text-align:center; width:250px; line-height:30px; height:30px;background:#fafcfd; border:1px solid #ccd5dd}
+.list_tit .form_table select option { text-align:center; width:250px; line-height:30px}
+.list_tit .form_table textarea { width:250px; height:80px;background:#fafcfd; border:1px solid #ccd5dd}
+
+
+
+.tk .form_table input[type=text] { border:none; height:30px; width:250px; background:#fafcfd; border:1px solid #ccd5dd}
+.tk .form_table input[type=checkbox] { background:#000; vertical-align:middle;  height:15px; width:15px; margin:0 2px 0 15px;}
+.tk .form_table input.duoxuan { background:#fafcfd; border:1px solid #ccd5dd  }
+.tk .form_table input[type=radio] { border:none; height:15px; width:15px; vertical-align:middle;margin:0 8px 0 15px;}
+.tk .form_table input[type=button] { border:none;}
+
+
+.tk{ padding: 10px;}
+.tk .form_table .choice { text-align:center; width:250px; line-height:30px; height:30px;background:#fafcfd; border:1px solid #ccd5dd}
+.tk .form_table select option { text-align:center; width:250px; line-height:30px}
+.tk .form_table textarea { width:250px; height:80px;background:#fafcfd; border:1px solid #ccd5dd}
+.tk h3 { line-height: 35px;}
+.tk p { line-height: 30px;}
+.tk form input[type='checkbox'] { margin: 0 5px;}
+
+
+/*翻页样式2*/
+.page{ height:40px; text-align:left; font-size:12px; margin:10px auto; clear:both;}
+.page ul{ margin:0 auto; height:40px;}
+.page ul li{display:inline; line-height:40px;}
+.a1 { color:#666;}
+.a2{ border:#CCCCCC 1px solid; color: #000; padding:3px 8px 3px 8px; line-height:25px; margin:3px;}
+.a3{color:#999999; border:#CCCCCC 1px solid; color: #000; padding:3px 8px 3px 8px;}
+.page .active{ border:#CCCCCC 1px solid; color: #000; padding:3px 8px 3px 8px; background:#f8f8f8;}
+
+/**/
+.form_table tr td:first-child{ text-align:right; padding-right:5px;}
+.pagelinks font{ font-weight:normal!important;}
+body{font-family: verdana,arial!important;}
+.pagelinks a{ padding:0!important;}
+
+
+
+
+

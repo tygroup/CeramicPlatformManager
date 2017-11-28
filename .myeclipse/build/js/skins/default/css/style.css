@@ -1,0 +1,9 @@
+.title{font-size:14pt;font-weight:bold;padding-left:10}
+.content{margin:12;font-size:9pt;padding-left:10;line-height:20px}
+.caption{font-size:12px;font-weight:bold;padding-left:10}
+.codearea{margin:22;background:silver;font-size:9pt;padding:12}
+.content table{border-collapse;collapse;}
+.ptable{border-collapse:collapse;margin:20;width:90%;padding-left:10}
+.ptable td{border:1 solid gray;font-size:9pt;padding:5;background:#f1f1f1}
+.tcaption td{background:silver;}
+.example{background: lightskyblue;margin-left:10}

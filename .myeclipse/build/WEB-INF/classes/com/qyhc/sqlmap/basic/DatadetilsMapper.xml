@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DataDetails" >
+ 
+ <insert id="save" parameterType="DataDetails" >
+	    <selectKey resultType="java.lang.String"  order="BEFORE" keyProperty="datadetailsid">  
+	 	 	SELECT f_getkey('')  FROM DUAL   
+	    </selectKey> 
+		insert into DATADETAILS 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			datadetailsid,
+			<if test="title != null">
+					title,
+			</if>
+			<if test="contents != null">
+					contents,
+			</if>
+			<if test="picurl != null">
+					picurl,
+			</if>
+						releasetime,
+				<if test="readingquantity != null">
+						readingquantity,
+			</if>
+			
+			<if test="pointpraise != null">
+						pointpraise,
+			</if>
+			<if test="typeid != null">
+					 typeid,
+			 </if>
+			 <if test="publisherid != null">
+					 publisherid,
+			 </if> 
+			state 
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				#{datadetailsid,jdbcType=VARCHAR},
+				<if test="title != null">
+					#{title,jdbcType=VARCHAR},
+				</if>
+				<if test="contents != null">
+					#{contents,jdbcType=VARCHAR},
+				</if>
+				<if test="picurl != null">
+						#{picurl,jdbcType=VARCHAR},
+				</if>
+					sysdate,
+				<if test="readingquantity != null">
+					#{readingquantity,jdbcType=VARCHAR},
+				</if>
+				 <if test="pointpraise != null">
+					#{pointpraise,jdbcType=VARCHAR},
+				</if>
+				<if test="typeid != null">
+					#{typeid,jdbcType=VARCHAR},
+				</if>
+				<if test="publisherid != null">
+					#{publisherid,jdbcType=VARCHAR},
+				</if> 
+				1 
+		</trim>
+	</insert>
+	<update id="update" parameterType="DataDetails">
+		update DATADETAILS
+		<set>    
+				<if test="title != null">
+					title = #{title,jdbcType=VARCHAR},
+				</if>
+				<if test="contents != null">
+					contents = #{contents,jdbcType=VARCHAR},
+				</if>
+				<if test="picurl != null">
+					picurl=#{picurl,jdbcType=VARCHAR},
+				</if>
+				 
+				<!-- <if test="pointpraise != null">
+					pointpraise=#{pointpraise,jdbcType=VARCHAR},
+				</if> -->
+				<if test="typeid != null">
+					typeid=#{typeid,jdbcType=VARCHAR},
+				</if>
+				 
+		</set>
+		where datadetailsid = #{datadetailsid,jdbcType=VARCHAR}
+	</update>
+	
+	<update  id="deleteByIds">
+		update DATADETAILS
+		<set>
+				state=0
+		</set>
+		<where>
+			<foreach close=")" collection="array" index="index" item="item" open="(" separator="or">
+				datadetailsid=#{item,jdbcType=VARCHAR}
+			</foreach>
+		</where>
+	</update>
+	 
+	<select id="findById" parameterType="java.lang.String" resultType="DataDetails">
+		 <![CDATA[select t.*,ts.typename   from DATADETAILS t		
+           left join date_types ts    on ts.typeid = t.typeid		 where t.datadetailsid =#{id,jdbcType=VARCHAR}]]>
+	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[select count(t.datadetailsid)	  from DATADETAILS t
+			  left join date_types ts	  on ts.typeid = t.typeid	    where t.state=1
+				 ]]>
+		<!--   <if test="typemark != null and  typemark !=''">
+			and ts.state=#{typemark}
+		</if> -->
+		<if test="typeid != null and  typeid !=''">
+			and t.typeid =#{typeid}
+		</if>
+		<if test="title != null and title !='' ">
+			and  t.title like concat(CONCAT('%',#{title}),'%')
+		</if>
+		<if test="typeid == null or typeid =='' ">
+			and t.typeid !='201708311017515014'
+		</if>
+		
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="DataDetails">
+		<![CDATA[select *  from (select aa.*, rownum rn
+          from (select t.*,ts.typename   from DATADETAILS t		
+           left join date_types ts    on ts.typeid = t.typeid	   where t.state=1 ]]>
+		
+	<!-- 	<if test="typemark != null and  typemark !=''">
+			and ts.state=#{typemark}
+		</if>
+		  -->
+		<if test="typeid != null and  typeid !=''">
+			and t.typeid =#{typeid}
+		</if>
+		<if test="title != null and title !='' ">
+			and  t.title like concat(CONCAT('%',#{title}),'%')
+		</if>
+		<if test="typeid == null or typeid =='' ">
+			and t.typeid !='201708311017515014'
+		</if>
+		
+       <![CDATA[   order by t.state desc ,t.releasetime desc) aa
+         where 	rownum<=#{endNum,jdbcType=VARCHAR} )where rn>#{startNum,jdbcType=VARCHAR} ]]> 
+	</select>
+  
+	
+</mapper>

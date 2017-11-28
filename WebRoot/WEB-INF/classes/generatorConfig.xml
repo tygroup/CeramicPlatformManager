@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 数据库驱动 -->
+	<classPathEntry location="D:\wkspace2014\NationalAgingManager\WebRoot\WEB-INF\lib\ojdbc14.jar" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<!--数据库链接URL，用户名、密码   220.194.201.119:1521:orcl(测试)   192.168.0.111:1521:ORCL(开发) -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@220.194.201.119:1521:orcl" userId="llw_kaifa"
+			password="123456">
+		</jdbcConnection>
+
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.qyhc.bean.match"
+			targetProject="NationalAgingManager">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成映射文件的包名和位置 -->
+		<sqlMapGenerator targetPackage="com.qyhc.sqlmap.match"
+			targetProject="NationalAgingManager">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.qyhc.dao.I.sys" targetProject="NationalAgingManager">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		-->
+		<!-- 要生成哪些表 -->
+		<table schema="" tableName="Rel_GameFillInItems"
+			domainObjectName="Rel_GameFillInItems" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false" />
+	</context>
+</generatorConfiguration>

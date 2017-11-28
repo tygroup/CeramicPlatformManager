@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Nurse">
+	
+ <insert id="save" parameterType="Nurse" >
+	    <selectKey resultType="java.lang.String"  order="BEFORE" keyProperty="nurseid">  
+	 	 	SELECT f_getkey('')  FROM DUAL   
+	    </selectKey> 
+		insert into Nurse 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			nurseid,
+			<if test="name != null">
+				name,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="age != null">
+				age,
+			</if>
+			<if test="birthday != null">
+				birthday,
+			</if>
+			<if test="country != null">
+				country,
+			</if>
+			<if test="areaid != null">
+				areaid,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="education != null">
+				education,
+			</if>
+			<if test="nursinglevel != null">
+				nursinglevel,
+			</if>
+			<if test="year != null">
+				year,
+			</if>
+			<if test="expertise != null">
+				expertise,
+			</if>
+			<if test="descriptions != null">
+				descriptions,
+			</if>
+			<if test="readingquantity != null">
+				readingquantity,
+			</if>
+			<if test="picurl != null">
+				picurl,
+			</if>
+				createtime,
+			STATE
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			 #{nurseid,jdbcType=VARCHAR},
+			<if test="name != null">
+				 #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				#{age,jdbcType=DECIMAL},
+			</if>
+			<if test="birthday != null">
+				#{birthday,jdbcType=VARCHAR},
+			</if>
+			<if test="country != null">
+				#{country,jdbcType=VARCHAR},
+			</if>
+			<if test="areaid != null">
+				#{areaid,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="education != null">
+				#{education,jdbcType=VARCHAR},
+			</if>
+			<if test="nursinglevel != null">
+				#{nursinglevel,jdbcType=VARCHAR},
+			</if>
+			<if test="year != null">
+				#{year,jdbcType=VARCHAR},
+			</if>
+			<if test="expertise != null">
+				#{expertise,jdbcType=VARCHAR},
+			</if>
+			<if test="descriptions != null">
+				#{descriptions,jdbcType=VARCHAR},
+			</if>
+			<if test="readingquantity != null">
+					#{readingquantity,jdbcType=VARCHAR},
+			</if>
+			<if test="picurl != null">
+				#{picurl,jdbcType=VARCHAR},
+			</if>
+				sysdate,
+			1
+		</trim>
+	</insert>
+	<update id="update" parameterType="Nurse">
+		update Nurse
+		<set>
+			<if test="name != null">
+				name= #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex =#{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				age =#{age,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				birthday =#{birthday,jdbcType=DATE},
+			</if>
+			<if test="country != null">
+				country =#{country,jdbcType=VARCHAR},
+			</if>
+			<if test="areaid != null">
+				areaid =#{areaid,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address =#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="education != null">
+				education =#{education,jdbcType=VARCHAR},
+			</if>
+			<if test="nursinglevel != null">
+				nursinglevel =#{nursinglevel,jdbcType=VARCHAR},
+			</if>
+			<if test="year != null">
+				year =#{year,jdbcType=VARCHAR},
+			</if>
+			<if test="expertise != null">
+				expertise =#{expertise,jdbcType=VARCHAR},
+			</if>
+			<if test="descriptions != null">
+				descriptions =#{descriptions,jdbcType=VARCHAR},
+			</if>
+			<if test="readingquantity != null">
+				readingquantity =	#{readingquantity,jdbcType=DECIMAL},
+			</if>
+			<if test="picurl != null">
+				picurl =#{picurl,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where nurseid = #{nurseid,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="findById"  parameterType="java.lang.String" resultType="Nurse">
+		 <![CDATA[select t.* 
+                  from Nurse t
+                  where  nurseid=#{nurseid,jdbcType=VARCHAR}]]>
+	</select>
+	<update id="deleteByIds">
+		update  Nurse
+		<set>	state = 0,
+		</set>
+		<where>
+			<foreach close=")" collection="array" index="index" item="item" open="(" separator="or">
+				nurseid=#{item,jdbcType=VARCHAR}
+			</foreach>
+		</where>
+	</update>
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[ select count(t.nurseid)  from Nurse t	 where t.state=1 ]]>
+		 
+		<if test="title != null and  title !='' ">
+			and t.name like concat(CONCAT('%',#{title}),'%')
+		</if>
+		<if test="level != null and  level !='' ">
+			and t.nursinglevel like concat(CONCAT('%',#{level}),'%')
+		</if>
+		<if test="education != null and  education !='' ">
+			and t.education like concat(CONCAT('%',#{education}),'%')
+		</if>
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="Nurse">
+		<![CDATA[select * from (select aa.*,rownum rn from 
+				(select t.*   from Nurse t where t.state=1]]>
+	 
+		<if test="title != null and  title !='' ">
+			and t.name like concat(CONCAT('%',#{title}),'%')
+		</if>
+		<if test="level != null and  level !='' ">
+			and t.nursinglevel like concat(CONCAT('%',#{level}),'%')
+		</if>
+		<if test="education != null and  education !='' ">
+			and t.education like concat(CONCAT('%',#{education}),'%')
+		</if>
+		 <![CDATA[ ) aa where
+			rownum<=#{endNum,jdbcType=VARCHAR} order by createtime desc )where rn>#{startNum,jdbcType=VARCHAR}  ]]> 
+	</select>
+</mapper>

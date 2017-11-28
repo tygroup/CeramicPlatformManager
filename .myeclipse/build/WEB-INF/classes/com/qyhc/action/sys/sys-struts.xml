@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sys" extends="qyhc">
+		<!-- 用户 -->
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="input">login.jsp</result>
+			<result name="success" type="redirect">/jsp/sys/main.jsp</result>
+			<result name="index">jsp/sys/content.jsp</result>
+			<result name="changePass">jsp/sys/user/userChangePass.jsp
+			</result>
+			<result name="list">jsp/sys/user/user_list.jsp</result>
+			<result name="matchlist">jsp/match/matchuser_list.jsp</result>
+			<result name="grant">jsp/sys/user/user_tree.jsp</result>
+			<result name="toAdd">jsp/sys/user/user_add.jsp</result>
+			<result name="edit">jsp/sys/user/user_edit.jsp</result>
+			<result name="toList" type="redirectAction">
+				<param name="actionName">user_list</param>
+				<param name="message">${message}</param>
+			</result>
+			<result name="closePopup">js/box_close.jsp</result>
+
+		</action>
+	<!--	 模块  -->
+		<action name="module_*" class="moduleAction" method="{1}">
+			<result name="index">jsp/sys/module/index.jsp</result>
+			<result name="add">jsp/sys/module/module_add.jsp</result>
+			<result name="update">jsp/sys/module/module_edit.jsp</result>
+			<result name="list">jsp/sys/module/module_list.jsp</result>
+			<result name="success">jsp/sys/module/flush_tree.jsp</result>
+
+		</action>
+	<!--	  角色 
+		<action name="role_*" class="roleAction" method="{1}">
+
+			<result name="add">jsp/sys/role/role_add.jsp</result>
+			<result name="update">jsp/sys/role/role_edit.jsp</result>
+			<result name="list">jsp/sys/role/role_list.jsp</result>
+			<result name="grant">jsp/sys/role/role_tree.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">role_list</param>
+				<param name="message">${message}</param>
+			</result>
+			<result name="closePopup">js/box_close.jsp</result>
+
+		</action>-->
+
+	 
+		<!-- ckeditor -->
+		<action name="ckUpload_*" class="com.qyhc.action.sys.CkeditorImgUploadAction"
+			method="{1}">
+		</action>
+		<action name="upload_*" class="com.qyhc.action.sys.ImgUploadAction"
+			method="{1}">
+
+
+
+		</action>
+		
+		<action name="area_*" class="areaAction" method="{1}">
+			 
+		</action>
+		<action name="GetMultiImage" class="com.qyhc.upload.UploadImages"
+			method="GetMultiImage">
+		</action>
+		<action name="downloadFiles" class="com.qyhc.upload.DownloadFiles">
+			<result type="stream">
+				<param name="contentType">${mimeType}</param>
+				<param name="inputName">inStream</param>
+				<param name="bufferSize">10*1024</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+			</result>
+		</action>
+		<!-- 手机广告页 jml  
+		<action name="adimages_*" class="adImagesAction" method="{1}">
+			<result name="list">jsp/sys/adpage/adpage_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">adimages_list</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="findbyid_ok">jsp/sys/adpage/addEdit.jsp</result>
+		</action>
+
+	  手机版本控制 jml  
+		<action name="appVersion_*" class="appVersionAction" method="{1}">
+			<result name="list">jsp/sys/appVersion/appVersion_list.jsp</result>
+			<result name="addedit_ok" type="redirectAction">
+				<param name="actionName">appVersion_list</param>
+				<param name="result">${result}</param>
+			</result>
+			<result name="findbyid_ok">jsp/sys/appVersion/appVersion_addEdit.jsp</result>
+		</action>
+		
+		  -->
+		 
+	</package>
+</struts>

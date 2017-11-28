@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Carousel">
+	
+ <insert id="save" parameterType="Carousel" >
+	    <selectKey resultType="java.lang.String"  order="BEFORE" keyProperty="carouselid">  
+	 	 	SELECT f_getkey('')  FROM DUAL   
+	    </selectKey> 
+		insert into Carousel 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			carouselid,
+			<if test="pagetitle != null">
+				pagetitle,
+			</if>
+			<if test="picurl != null">
+				picurl,
+			</if>
+			<if test="picorder != null">
+				picorder,
+			</if>
+			<if test="source != null">
+				source,
+			</if>
+			 <if test="starttime != null">
+				starttime,
+			</if>
+			<if test="endtime != null">
+				endtime,
+			</if>
+			<if test="isvideo != null">
+				isvideo,
+			</if>
+			<if test="contents != null">
+				contents,
+			</if>
+			STATE
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			 #{carouselid,jdbcType=VARCHAR},
+			<if test="pagetitle != null">
+				 #{pagetitle,jdbcType=VARCHAR},
+			</if>
+			<if test="picurl != null">
+				#{picurl,jdbcType=VARCHAR},
+			</if>
+			<if test="picorder != null">
+				#{picorder,jdbcType=DECIMAL},
+			</if>
+			 <if test="source != null">
+				#{source,jdbcType=DECIMAL},
+			</if>
+			 <if test="starttime != null">
+				#{starttime,jdbcType=DATE},
+			</if>
+			<if test="endtime != null">
+				#{endtime,jdbcType=DATE},
+			</if>
+			<if test="isvideo != null">
+				#{isvideo,jdbcType=VARCHAR},
+			</if>
+			<if test="contents != null">
+				#{contents,jdbcType=VARCHAR},
+			</if>
+			0
+		</trim>
+	</insert>
+	<update id="update" parameterType="Carousel">
+		update Carousel
+		<set>
+			<if test="pagetitle != null">
+				pagetitle= #{pagetitle,jdbcType=VARCHAR},
+			</if>
+			<if test="picurl != null">
+				picurl=#{picurl,jdbcType=VARCHAR},
+			</if>
+			<if test="picorder != null">
+				picorder=#{picorder,jdbcType=DECIMAL},
+			</if>
+			 <if test="source != null">
+				0,
+			</if>
+			 <if test="starttime != null">
+				starttime  = #{starttime,jdbcType=DATE},
+			</if>
+			<if test="endtime != null">
+				endtime = #{endtime,jdbcType=DATE},
+			</if>
+			<if test="isvideo != null">
+				isvideo = #{isvideo,jdbcType=VARCHAR},
+			</if>
+			<if test="contents != null">
+				contents = #{contents,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where carouselid = #{carouselid,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="findById"  parameterType="java.lang.String" resultType="Carousel">
+		 <![CDATA[select t.* 
+                  from Carousel t
+                  where  carouselid=#{carouselid,jdbcType=VARCHAR}]]>
+	</select>
+	<update id="deleteByIds">
+		update  Carousel
+		<set>	state = 1,
+		</set>
+		<where>
+			<foreach close=")" collection="array" index="index" item="item" open="(" separator="or">
+				carouselid=#{item,jdbcType=VARCHAR}
+			</foreach>
+		</where>
+	</update>
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		<![CDATA[ select count(t.carouselid)  from Carousel t	 where t.state=0 ]]>
+		 
+		<if test="title != null and  title !='' ">
+			and t.pagetitle  like concat(CONCAT('%',#{title}),'%')
+		</if>
+		<if test="begintime != null and begintime != '' ">
+			and trunc(t.starttime)   &gt;=   to_date(#{begintime},'yyyy-mm-dd HH24:MI:SS')
+		</if>
+		<if test="endtime != null and endtime != '' ">
+			and trunc(t.endtime)   &lt;=   to_date(#{endtime},'yyyy-mm-dd HH24:MI:SS')
+		</if>
+	</select> 
+	<select id="queryPage" parameterType="map" resultType="Carousel">
+		<![CDATA[select * from (select aa.*,rownum rn from 
+				(select t.*   from Carousel t where t.state=0]]>
+	 
+		<if test="title != null and  title !='' ">
+			and t.pagetitle  like concat(CONCAT('%',#{title}),'%')
+		</if>
+		<if test="begintime != null and begintime != '' ">
+			and trunc(t.starttime)   &gt;=   to_date(#{begintime},'yyyy-mm-dd HH24:MI:SS')
+		</if>
+		<if test="endtime != null and endtime != '' ">
+			and trunc(t.endtime)   &lt;=   to_date(#{endtime},'yyyy-mm-dd HH24:MI:SS')
+		</if>
+		 
+		 <![CDATA[ ) aa where
+			rownum<=#{endNum,jdbcType=VARCHAR}  order by carouselid desc )where rn>#{startNum,jdbcType=VARCHAR}  ]]> 
+	</select>
+</mapper>
